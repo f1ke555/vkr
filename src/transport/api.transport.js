@@ -4,7 +4,7 @@ import { apiService } from "../services/api.service";
 class ApiTransport {
     //methods
     async getAllGames(isFromCategories, ids) {
-        return axios.get('http://37.79.216.230:59614/api/games/getallgames', {
+        return axios.get('https://37.79.216.230:44396/api/games/getallgames', {
             method: 'GET', // *GET, POST, PUT, DELETE, etc.
           }).then((response) => {
               if (isFromCategories) {
