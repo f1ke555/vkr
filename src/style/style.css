@@ -1,11 +1,9 @@
 .App {
-  background: url("../assets/bgIcons.png")  center center,
-  linear-gradient(99.85deg, #420d55 -8.01%, #2a0a47 113.26%);
+  background: linear-gradient(99.85deg, #420D55 -8.01%, #2A0A47 113.26%), #2A0A47;
   font-family: "Montserrat", sans-serif;
   font-size: 18px;
   color: #fff;
   background-attachment: fixed;
-  min-height: 1000px;
   font-weight: 700;
 }
 
