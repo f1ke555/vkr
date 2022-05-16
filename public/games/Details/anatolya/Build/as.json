@@ -1,0 +1,16 @@
+{
+"companyName": "P.T.V.E.",
+"productName": "X-Project",
+"productVersion": "0.4",
+"dataUrl": "as.data.unityweb",
+"wasmCodeUrl": "as.wasm.code.unityweb",
+"wasmFrameworkUrl": "as.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": true,
+"multithreading": false,
+"unityVersion": "2019.4.17f1"
+}

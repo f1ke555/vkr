@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | Math_Claw_16slov</title>
+  </head>
+  <body style="text-align: center">
+    <canvas id="unity-canvas" style="width: 360px; height: 640px; background: #231F20"></canvas>
+    <script src="Build/DefenseBuildFinal.loader.js"></script>
+    <script>
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "Build/DefenseBuildFinal.data",
+        frameworkUrl: "Build/DefenseBuildFinal.framework.js",
+        codeUrl: "Build/DefenseBuildFinal.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "16slov",
+        productName: "Math_Claw_16slov",
+        productVersion: "0.0.1",
+      });
+    </script>
+  </body>
+</html>

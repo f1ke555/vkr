@@ -1,0 +1,495 @@
+.App {
+  background: url("../assets/bgIcons.png")  center center,
+  linear-gradient(99.85deg, #420d55 -8.01%, #2a0a47 113.26%);
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  color: #fff;
+  background-attachment: fixed;
+  min-height: 1000px;
+  font-weight: 700;
+}
+
+.knopka {
+  position: absolute;
+  width: 40px;
+  height: 70px;
+  background: linear-gradient(97.44deg, rgba(254, 110, 78, 0.3) -31.54%, rgba(254, 78, 78, 0.3) 124.51%);
+  border-radius: 5px;
+  left: 100px;
+  top: 30%;
+}
+
+.knopkaright {
+  position: absolute;
+  width: 40px;
+  height: 70px;
+  left: 1144px;
+  top: 30%;
+
+  background: linear-gradient(97.44deg, rgba(254, 110, 78, 0.9) -31.54%, rgba(254, 78, 78, 0.9) 124.51%);
+  box-shadow: 0px 4px 11px 1px rgba(0, 0, 0, 0.13);
+  border-radius: 5px;
+}
+
+.knopkagame {
+  position: absolute;
+  width: 40px;
+  height: 70px;
+  background: linear-gradient(97.44deg, rgba(254, 110, 78, 0.3) -31.54%, rgba(254, 78, 78, 0.3) 124.51%);
+  border-radius: 5px;
+  left: 100px;
+  top: 20%;
+}
+
+.knopkagameright {
+  position: absolute;
+  width: 40px;
+  height: 70px;
+  left: 1144px;
+  top: 20%;
+
+  background: linear-gradient(97.44deg, rgba(254, 110, 78, 0.9) -31.54%, rgba(254, 78, 78, 0.9) 124.51%);
+  box-shadow: 0px 4px 11px 1px rgba(0, 0, 0, 0.13);
+  border-radius: 5px;
+}
+
+.commentary {
+  padding-left: 100px;
+  overflow: auto;
+  height: 250px;
+  margin-bottom: 30px;
+}
+
+.commentary::-webkit-scrollbar {
+  width: 4px;               /* ширина всей полосы прокрутки */
+}
+
+.commentary::-webkit-scrollbar-track {
+  background: #28073E;        /* цвет зоны отслеживания */
+  width: 8px;
+}
+
+.commentary::-webkit-scrollbar-thumb {
+  background: linear-gradient(97.44deg, #FE6E4E -31.54%, #FE4E4E 124.51%), #C4C4C4;
+  box-shadow: 0px 4px 11px 1px rgba(0, 0, 0, 0.13);
+  border-radius: 2px;
+}
+
+.gl {
+  background: url("../assets/gl.png");
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 1000px;
+
+}
+
+.auth {
+  background: url("../assets/regbg.png");
+  background-attachment: fixed;
+  background-size: cover;
+  height: 1000px;
+}
+
+/* Basic classes */
+
+h1 {
+  font-size: 40px;
+  color: white;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 24px;
+  color: white;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 500;
+}
+h4 {
+  font-size: 18px;
+}
+
+h5 {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.input-modal {
+  margin-top: 15px;
+}
+
+.description {
+  padding-top: 3px;
+  padding-left: 10px;
+  width: 250px;
+}
+
+.profile-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background-color: white;
+  border: 2px solid #000;
+  padding: 4px;
+}
+a {
+  color: #fe6e4e;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #cf593f;
+}
+
+img {
+  border-radius: 12px;
+}
+
+.img-input {
+  height: 26px;
+  width: 26px;
+  position: absolute;
+  margin-top: 28px;
+  padding-left: 15px;
+}
+
+.img-input-mail {
+  position: absolute;
+  margin-top: 198px;
+  padding-left: 15px;
+}
+
+.img-input-password {
+  position: absolute;
+  margin-top: 283px;
+  padding-left: 15px;
+}
+
+.img-input-group {
+  position: absolute;
+  margin-top: 113px;
+  padding-left: 15px;
+}
+
+.img-input-mail-reg {
+  position: absolute;
+  margin-top: 28px;
+  padding-left: 15px;
+}
+
+.img-input-password-reg {
+  position: absolute;
+  margin-top: 113px;
+  padding-left: 15px;
+}
+
+
+.form {
+  position: relative;
+}
+
+.i {
+  position: absolute;
+  margin-top: 25px;
+  padding-left: 15px
+}
+
+.validation {
+  color: red;
+  font-size: 13px;
+}
+
+.search-icon {
+  position: absolute;
+  padding-left: 159px;
+  padding-top: 5px;
+}
+
+.arrow-category {
+  position: absolute;
+  padding-left: 150px;
+  margin-top: 41px;
+}
+
+.arrow-game {
+  position: absolute;
+  padding-left: 251px;
+  margin-top: 50px;
+}
+
+.arrow-search {
+  position: absolute;
+  padding-right: 130px;
+  padding-top: 63px;
+  right: 0px;
+}
+
+.show-pass {
+  position: absolute;
+  padding-top: 280px;
+  padding-left: 368px;
+}
+
+.btn-profile {
+  width: 160px;
+  height: 26px;
+  background: #330B4F;
+  border: 1px solid #FFFFFF;
+  box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.13);
+  border-radius: 3px;
+  margin-top: 65px;
+  font-size: 14px;
+  line-height: 85%;
+  text-align: center;
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+.btn-category {
+  width: 206px;
+  font-size: 14px;
+  height: 26px;
+  margin-top: 50px;
+  background: #330B4F;
+  border: 1px solid #FFFFFF;
+  box-shadow: 0px 4px 11px rgb(0 0 0 / 13%);
+  border-radius: 3px;
+  color: #fff;
+  font-weight: 500;
+}
+
+
+/* Bootstrap classes */
+
+.card {
+  background: #4B185F;
+  box-shadow: 0px 4px 11px 1px rgba(0, 0, 0, 0.13);
+  border-radius: 8px;
+}
+
+.btn {
+  font-size: 16px;
+  color: #fff;
+  padding: 0.5rem 2.5rem;
+  border-radius: 6px;
+}
+
+.btn-nav {
+  font-size: 16px;
+  color: #fff;
+  background: transparent;
+  border: 0;
+  padding-left: 75px;
+  font-weight: 700;
+}
+
+
+.btn-nav:hover {
+  color: #fe6e4e;
+}
+
+.btn-primary {
+  background: linear-gradient(97.44deg, #fe6e4e -31.54%, #fe4e4e 124.51%);
+  border: none;
+  font-weight: 700;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(97.44deg, #cf593f -31.54%, #cf3f3f 124.51%);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border-width: 2.5px;
+  border-color: #fff;
+  border-radius: 6px;
+  color: white;
+  width: 206px;
+  height: 40px;
+  font-weight: 700;
+}
+
+.btn-secondary:active {
+  background-color: transparent;
+  border-width: 2.5px;
+  border-color: #fff;
+  border-radius: 6px;
+  color: white;
+  width: 206px;
+  height: 40px;
+}
+
+.btn-secondary:focus {
+  background-color: transparent;
+  border-width: 2.5px;
+  border-color: #fff;
+  border-radius: 6px;
+  color: white;
+  width: 206px;
+  height: 40px;
+}
+
+.btn-secondary:hover,
+.form-control:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fe6e4e;
+  border-color: #fe6e4e;
+}
+
+.form-control {
+  color: #fff;
+  margin: 10px 0;
+  font-size: 16px;
+  line-height: 48px;
+  border-width: 2.5px;
+  border-color: #28073E;
+  padding-left: 50px;
+  background: #28073E;
+  box-shadow: inset 1px 1px 11px rgba(0, 0, 0, 0.16);
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+.form-control::placeholder {
+  color: #fff;
+  opacity: 0.5;
+}
+
+.navbar {
+  width: 100%;
+}
+
+/*.container:nth-child(2) {*/
+/*  height: 100vh;*/
+/*}*/
+
+/* Custom classes */
+
+.text-table {
+  color: #fe6e4e;
+}
+
+.hint {
+  font-size: 14px;
+  position: absolute;
+  left: 370px;
+  top: 15px;
+}
+
+.color-text {
+  color: #FE6E4E;
+  padding: 0px 10px;
+;
+}
+.type-bar {
+  background-color: transparent;
+  border-color: #fe6e4e;
+  color: white;
+  top: 15px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  margin-right: 10px;
+  border: 1.5px solid #fff;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.tag:last-child {
+  margin-right: 0;
+}
+
+
+.btn-lg {
+  font-size: 24px;
+}
+
+.card-lg {
+  padding: 50px 150px;
+}
+
+.input-find::-webkit-input-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+.input-find::-moz-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+.input-find:-moz-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+.input-find:-ms-input-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+.input-find:focus::-webkit-input-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.input-find:focus::-moz-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.input-find:focus:-moz-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.input-find:focus:-ms-input-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.input-find {
+  border-color: #28073E;
+  padding-left: 30px;
+  width: 670px;
+  height: 45px;
+  border-radius: 8px;
+  margin: 0 auto;
+  font-weight: 700;
+}
+
+.input-com {
+  width: 485px;
+  height: 96px;
+}
+
+.views {
+  position: absolute;
+  left: 84%;
+}
+
+.input-find::placeholder {
+  color: #fff;
+  opacity: 0.5;
+}
+
+.profile .card {
+  padding: 30px 50px;
+}
+
+.custom-label {
+  opacity: 0.7;
+}
+
+.text-primary {
+  color: #fe6e4e !important;
+}
+
+
+
+
+
