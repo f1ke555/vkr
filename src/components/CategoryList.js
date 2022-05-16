@@ -8,13 +8,20 @@ import {apiTransport} from "../transport/api.transport";
 import {ALLGAME_ROUTE} from "../utils/consts";
 import {useHistory} from "react-router-dom";
 
-const CategoryList = () => {
-  const [categories, setCategories] = useState([]); // id, name, games
+const CategoryList = (props) => {
+  const [categories, setCategories] = useState([]);
+  const [filteredCategories, setFilteredCategories] = useState([]);
+
     const history = useHistory();
   useEffect(() => {
       apiTransport.getAllCategories()
           .then(response => setCategories(response.data));
   }, [])
+
+    useEffect(() => {
+        const filterArray = categories.filter((item) => item.name.includes(props.searchText));
+        setFilteredCategories(filterArray)
+    }, [props.searchText, categories])
 
     const handleClick = (name, games) => {
         history.push(ALLGAME_ROUTE, { hasCategories: true, name, games })
@@ -23,7 +30,7 @@ const CategoryList = () => {
     <div
         className="horizontal-scroll mt-3 d-flex justify-content-center">
       <HorizontalScroll style={{ height: "200px", width: "970px" }}>
-        {categories && categories.map((type) => (
+        {filteredCategories && filteredCategories.map((type) => (
           <Row
             className="main"
             style={{ cursor: "pointer" }}

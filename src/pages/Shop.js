@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Container } from "react-bootstrap";
 import DeviceList from "../components/DeviceList";
 import CategoryList from "../components/CategoryList";
@@ -7,6 +7,11 @@ import arrow from "../assets/arrow.png";
 
 
 const Shop = () => {
+    const [searchText, setSearchText] = useState('');
+    const handleChange = (event) => {
+        setSearchText(event.target.value);
+    }
+
   return (
       <Container className="">
           <h3 style={{paddingTop: "50px"}}
@@ -20,7 +25,7 @@ const Shop = () => {
       <input
         className="form-control input-find mt-3"
         placeholder="Начните искать игру или #категорию"
-        onChange={(event) => console.log(event.target.value)}
+        onChange={handleChange}
       />
           <div className="">
               <h2 className="mt-5 mn-5 d-flex justify-content-center"
@@ -31,13 +36,13 @@ const Shop = () => {
           >
               <div className="knopka"></div>
               <div className="knopkaright"></div>
-              <CategoryList />
+              <CategoryList  searchText={searchText.includes('#') ? searchText.replace('#', '') : ''}/>
           </div>
       <h2 className="mt-5 d-flex justify-content-center">Недавно просмотренные игры</h2>
           <div style={{position: "relative"}}>
               <div className="knopkagame"></div>
               <div className="knopkagameright"></div>
-              <DeviceList />
+              <DeviceList searchText={!searchText.includes('#') ? searchText : ''}/>
           </div>
     </Container>
       

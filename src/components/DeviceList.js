@@ -9,10 +9,15 @@ import { apiService } from "../services/api.service";
 import { apiTransport } from "../transport/api.transport";
 
 
-const DeviceList = observer(() => {
-  const { device } = useContext(Context);
+const DeviceList = (props) => {
 
  const [games, setGames] = useState([]);
+ const [filteredGames, setFilteredGames] = useState([]);
+
+    useEffect(() => {
+        const filterArray = games.filter((item) => item.name.includes(props.searchText));
+        setFilteredGames(filterArray)
+    }, [props.searchText, games])
 
   useEffect(() => {
     apiTransport.getAllGames();
@@ -22,7 +27,7 @@ const DeviceList = observer(() => {
   return (
     <div className="horizontal-scroll mt-3 d-flex justify-content-center">
       <HorizontalScroll style={{ height: "200px", width: "980px" }}>
-        {games.map((device) => (
+        {filteredGames && filteredGames.map((device) => (
           <Row className="">
             <DeviceItem key={device.id} device={device} />
           </Row>
@@ -30,6 +35,6 @@ const DeviceList = observer(() => {
       </HorizontalScroll>
     </div>
   );
-});
+};
 
 export default DeviceList;
