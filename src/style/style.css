@@ -4,6 +4,15 @@
   color: #fff;
   background-attachment: fixed;
   font-weight: 700;
+  position: relative;
+}
+
+.copyright {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 85%;
+  text-align: center;
+  color: #D6CEDB;
 }
 
 body {
@@ -139,25 +148,50 @@ h2 {
 h3 {
   font-size: 16px;
   font-weight: 500;
+
 }
 h4 {
   font-size: 18px;
+  color: white;
+  font-weight: 700;
+  line-height: 85%;
 }
+
 
 h5 {
   font-size: 12px;
   font-weight: 500;
 }
 
+.no-comment {
+  padding-top: 100px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+}
+
 .input-modal {
-  margin-top: 25px;
   padding-left: 10px !important;
+  width: 380px;
+  height: 45px;
+}
+
+
+
+.input-modal:disabled {
+  background-color: #cf3f3f;
 }
 
 .input-select {
   padding-left: 10px !important;
 }
 
+.img-show-password {
+  position: absolute;
+  left: 447px;
+  top: 278px;
+}
 .description {
   padding-top: 3px;
   padding-left: 10px;

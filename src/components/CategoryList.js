@@ -1,6 +1,4 @@
 import React, {useEffect, useState} from "react";
-import { observer } from "mobx-react-lite";
-import { Row } from "react-bootstrap";
 import "../style/style.css";
 import HorizontalScroll from "react-scroll-horizontal";
 import CategoryItem from "./CategoryItem";
@@ -23,22 +21,23 @@ const CategoryList = (props) => {
         setFilteredCategories(filterArray)
     }, [props.searchText, categories])
 
+
     const handleClick = (name, games) => {
         history.push(ALLGAME_ROUTE, { hasCategories: true, name, games })
     }
   return (
     <div
-        className="horizontal-scroll mt-3 d-flex justify-content-center">
+        className="mt-3 d-flex justify-content-center">
       <HorizontalScroll style={{ height: "200px", width: "970px" }}>
         {filteredCategories && filteredCategories.map((type) => (
-          <Row
+          <div
             className="main"
             style={{ cursor: "pointer" }}
             key={type.id}
             onClick={handleClick.bind(null, type.name, type.games)}
           >
             <CategoryItem key={type.id} type={type} />
-          </Row>
+          </div>
         ))}
       </HorizontalScroll>
     </div>

@@ -4,6 +4,7 @@ import {apiTransport} from "../transport/api.transport";
 import {Autocomplete, Chip, TextField, Modal, Typography} from "@mui/material";
 import {Box} from "@mui/system";
 import {Context} from "../index";
+import {useHistory} from "react-router-dom";
 
 const DEFAULT_PROFILE_INFO = {
   "id":0,
@@ -26,6 +27,7 @@ const competency = [
 function Profile () {
 
   const { user } = useContext(Context);
+  const history = useHistory()
 
   const [receivers, setReceivers] = useState([]);
 
@@ -33,6 +35,7 @@ function Profile () {
     user.setUser({});
     user.setIsAuth(false);
     sessionStorage.setItem('token', null);
+    history.push('/');
   };
 
   const [profileInfo, setProfileInfo] = useState(DEFAULT_PROFILE_INFO)
@@ -46,7 +49,8 @@ function Profile () {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 700,
+    width: 970,
+    height: 500,
     backgroundColor: '#4B185F',
     border: '8px',
     p: 4,
@@ -70,37 +74,61 @@ function Profile () {
             Редактирование формы профиля
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            <div className="d-flex flex-column">
-              <input className="input-modal form-control" placeholder="Введите номер телефона"/>
-              <input className="input-modal form-control" placeholder="Введите номер курса"/>
-              <input className="input-modal form-control" placeholder="Введите название института"/>
-              <input className="input-modal form-control" placeholder="Введите название направления"/>
-              <Autocomplete
-                  className="form-control input-select"
-                  multiple
-                  onChange={(e, value) => setReceivers((state) => value)}
-                  id="tags-filled"
-                  options={competency.map((option) => option.title)}
-                  freeSolo
-                  renderTags={(value, getTagProps) =>
-                      value.map((option, index) => (
-                          <Chip color="warning" label={option} {...getTagProps({ index })} />
-                      ))
-                  }
-                  renderInput={(params) => (
-                      <TextField
-                          {...params}
-                          variant="filled"
-                          label="freeSolo"
-                          placeholder="Favorites"
-                      />
-                  )}
-              />
-            </div>
+            <div className="d-flex justify-content-between">
+              <div>
+                <h4>Основная информация</h4>
+                <input className="input-modal form-control" disabled="true" placeholder={profileInfo.name}/>
+                <input className="input-modal form-control" disabled="true" placeholder={profileInfo.group}/>
+                <select style={{lineHeight: '24px'}} className="input-modal form-control" placeholder="Введите номер курса">
+                  <option className="form-control" value="value1">1</option>
+                  <option className="form-control" value="value2">2</option>
+                  <option className="form-control" value="value3">3</option>
+                  <option className="form-control" value="value2">4</option>
+                  <option className="form-control" value="value3">5</option>
+                </select>
+                <input className="input-modal form-control" placeholder="Введите название института"/>
+                <input className="input-modal form-control" placeholder="Введите название направления"/>
+              </div>
+              <div>
+                <h4>Выбор интересов</h4>
+                <Autocomplete
+                    className="form-control input-select"
+                    multiple
+                    onChange={(e, value) => setReceivers((state) => value)}
+                    id="tags-filled"
+                    options={competency.map((option) => option.title)}
+                    freeSolo
+                    renderTags={(value, getTagProps) =>
+                        value.map((option, index) => (
+                            <Chip color="warning" label={option} {...getTagProps({ index })} />
+                        ))
+                    }
+                    renderInput={(params) => (
+                        <TextField
+                            {...params}
+                            variant="filled"
+                            label="freeSolo"
+                            placeholder="Favorites"
+                        />
+                    )}
+                />
+                <div style={{paddingTop: "58px"}}>
+                  <h4>Контактная информация</h4>
+                  <input className="input-modal form-control" disabled placeholder={profileInfo.login}/>
+                </div>
+
+
+                <input className="input-modal form-control"  placeholder="Введите номер телефона"/>
+              </div>
+              </div>
+
+
           </Typography>
-          <button className="btn btn-primary mt-4">
-                Сохранить
-          </button>
+          <div className="d-flex justify-content-center pt-4">
+            <button className="btn btn-primary mt-4">
+              Сохранить
+            </button>
+          </div>
         </Box>
       </Modal>
       <h1 className="mt-5">Профиль</h1>
@@ -127,6 +155,7 @@ function Profile () {
                 <div>Курс</div>
                 <div>Институт</div>
                 <div>Направление</div>
+                <div>Интересы:</div>
               </div>
               <div>
                 <div>8 (800) 555-35-35</div>

@@ -2,8 +2,8 @@ import React, {useContext, useEffect, useState} from "react";
 import { Container } from "react-bootstrap";
 import AllGameList from "../components/AllGameList";
 import {useHistory} from "react-router-dom";
-import search_icon from "../assets/search_icon.png";
 import {ALLGAME_ROUTE} from "../utils/consts";
+
 
 const Shop = () => {
   const history = useHistory();
@@ -15,7 +15,6 @@ const Shop = () => {
   return (
       <Container>
       <input
-
         className="form-control input-find mt-3"
         placeholder="Начните вводить название для поиска"
         onChange={handleChange}
@@ -28,7 +27,6 @@ const Shop = () => {
                   Показать католог игр
               </button>
           </div>
-
       <AllGameList
           searchText={searchText}
           hasCategories={history.location.state?.hasCategories}

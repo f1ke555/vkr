@@ -11,6 +11,7 @@ const AllGameList = (props) => {
  const [games, setGames] = useState([]);
  const { hasCategories, gamesIds } = props;
  const [filteredGames, setFilteredGames] = useState([]);
+
  const history = useHistory();
 
   useEffect(() => {

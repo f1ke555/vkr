@@ -21,6 +21,7 @@ function App() {
         <NavBar />
         <AppRouter />
       </BrowserRouter>
+        <div id="footer" className="copyright">Кафедра высшей математики УрФУ</div>
     </div>
   );
 }

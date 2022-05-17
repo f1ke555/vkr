@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, {useContext, useEffect, useState} from "react";
 import { Card } from "react-bootstrap";
 import { apiService } from "../services/api.service";
 import { useLocation } from "react-router-dom";
 import { Unity } from "react-unity-webgl";
 import {apiTransport} from "../transport/api.transport";
+import {Context} from "../index";
 
 const DEFAULT_STATE = {
   mainData: {
@@ -16,12 +17,14 @@ const DEFAULT_STATE = {
     views: 0,
   },
   commentText: '',
-  comments: []
+  comments: [],
+  max_length: 120,
 }
 
 function DevicePage() {
   const [state, setState] = useState(DEFAULT_STATE);
   const location = useLocation();
+  const { user } = useContext(Context);
 
   useEffect(() => {
     // apiService._allGames$.subscribe((games) => setState(games))
@@ -88,17 +91,23 @@ function DevicePage() {
       <div className="d-flex">
         <div>
           <label className="pt-4">
-            <h2 className="color-text">Комментарий:</h2>
-            <input
-              className="form-control input-find mt-3 input-com"
-              name="comment"
-              value={state.commentText}
-              onChange={handleChange}
-            />
+
+            {user.isAuth ?
+                <div>
+                  <h2 className="color-text">Комментарий:</h2>
+                  <input
+                      className="form-control input-find mt-3 input-com"
+                      name="comment"
+                      value={state.commentText}
+                      onChange={handleChange}
+                  />
+                  <button className="btn btn-primary mt-4" onClick={addComment}>Отправить</button>
+                </div>
+                :
+                <div className="no-comment">Вы не можете оставлять комментарии, пока Вы не авторизованы. Выполните <a href="http://localhost:3000/login">вход</a> или <a href="http://localhost:3000/registration">зарегистрируйтесь</a></div>
+            }
+
           </label>
-          <div>
-            <button className="btn btn-primary mt-4" onClick={addComment}>Отправить</button>
-          </div>
         </div>
         <div className="commentary">
           {state.comments && state.comments.map(comment => {

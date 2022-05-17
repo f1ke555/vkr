@@ -24,6 +24,7 @@ const NavBar = observer(() => {
     user.setUser({});
     user.setIsAuth(false);
     sessionStorage.setItem('token', null);
+    history.push('/');
   };
 
   return (

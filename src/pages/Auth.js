@@ -11,6 +11,7 @@ import supervised_user_circle from "../assets/supervised_user_circle.png";
 import {apiTransport} from "../transport/api.transport";
 import {Context} from "../index";
 import logotip from "../assets/logotip.png";
+import show from "../assets/show.png"
 
 
 const DEFAULT_FORM_VALUES = {
@@ -31,6 +32,8 @@ const Auth = () => {
   const [nameDirty, setNameDirty] = useState(false);
   const [nameError, setNameError] = useState('ФИО не может быть пустым')
   const [formValid, setFormValid] = useState(false)
+  const [state, setState] = useState(false)
+
   const history = useHistory();
   const { user } = useContext(Context);
 
@@ -117,7 +120,11 @@ const Auth = () => {
       setFormValid(true)
     }
   }, [emailError, passwordError])
-  
+
+  const toggleBtn = (e) => {
+    e.preventDefault();
+    setState(prevState => !prevState)
+  }
 
   return (
       <Container className="d-flex justify-content-center align-items-center flex-column pt-5" >
@@ -166,7 +173,9 @@ const Auth = () => {
                 </Button>
               </Form>
           ) : (
-              <Form className="d-flex flex-column ">
+              <Form
+                  style={{position: 'relative'}}
+                  className="d-flex flex-column ">
                 <Form.Control
                     placeholder="Введите свою фамилию и имя"
                     onChange={handleName}
@@ -193,12 +202,18 @@ const Auth = () => {
                     onChange={handleEmail}
                 />
                 <div className="img-input-mail"><img src={mail_outline}></img></div>
-
+                <div className="img-show-password">
+                  <button
+                      style={{background: "transparent", border: '0'}}
+                      onClick={toggleBtn}>
+                    <img src={show}/>
+                  </button>
+                </div>
                 <Form.Control
                     name='password'
                     onBlur={e => blurHandler(e)}
                     placeholder="Введите пароль"
-                    type="password"
+                    type={state ? "text" : "password"}
                     value={formValues.password}
                     onChange={handlePassword}
                 />

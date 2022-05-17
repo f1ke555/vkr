@@ -14,11 +14,11 @@ const Shop = () => {
 
   return (
       <Container className="">
-          <h3 style={{paddingTop: "50px"}}
+          <h3 style={{paddingTop: "117px"}}
               className="d-flex justify-content-center">
               Добро пожаловать на онлайн платформу образовательных игр
           </h3>
-          <h1 style={{paddingTop: "35px"}}
+          <h1 style={{paddingTop: "35px", paddingBottom: "40px"}}
               className="d-flex justify-content-center">
               Какой <span className="color-text">предмет </span> вы хотите освоить?
           </h1>
@@ -38,7 +38,7 @@ const Shop = () => {
               <div className="knopkaright"></div>
               <CategoryList  searchText={searchText.includes('#') ? searchText.replace('#', '') : ''}/>
           </div>
-      <h2 className="mt-5 d-flex justify-content-center">Недавно просмотренные игры</h2>
+      <h2 className="mt-5 d-flex justify-content-center">Игры</h2>
           <div style={{position: "relative"}}>
               <div className="knopkagame"></div>
               <div className="knopkagameright"></div>

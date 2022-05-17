@@ -16,7 +16,6 @@ class ApiTransport {
                   return Promise.resolve(response.data)
               }
         });
-
     }
 
     writeComment(requestData) {
@@ -43,6 +42,8 @@ class ApiTransport {
             }
         )
     }
+
+
 
     authorization(requestData) {
         return axios.post(
