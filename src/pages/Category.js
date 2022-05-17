@@ -7,8 +7,11 @@ import {apiTransport} from "../transport/api.transport";
 import {useHistory} from "react-router-dom";
 import {ALLGAME_ROUTE} from "../utils/consts";
 
-const Category = observer(() => {
-  const [value, setValue] = useState('');
+const Category = () => {
+    const [searchText, setSearchText] = useState('');
+    const handleChange = (event) => {
+        setSearchText(event.target.value);
+    }
   const [categories, setCategories] = useState([]); // id, name, games
     const history = useHistory()
   useEffect(() => {
@@ -21,7 +24,7 @@ const Category = observer(() => {
       <input
         className="form-control input-find mt-3"
         placeholder="Начните вводить название для поиска"
-        onChange={(event) => setValue(event.target.value)}
+        onChange={handleChange}
       />
           <div className="d-flex justify-content-between">
               <h2 className="mt-5">Категории</h2>
@@ -31,10 +34,10 @@ const Category = observer(() => {
                   Показать католог игр
               </button>
           </div>
-      <AllCategoryList categories={categories} />
+      <AllCategoryList categories={categories} searchText={searchText}/>
     </Container>
       
   );
-});
+};
 
 export default Category;

@@ -4,7 +4,7 @@ import { apiService } from "../services/api.service";
 class ApiTransport {
     //methods
     async getAllGames(isFromCategories, ids) {
-        return axios.get('https://37.79.216.230:44396/api/games/getallgames', {
+        return axios.get('http://37.79.216.230:59614/api/games/getallgames', {
             method: 'GET', // *GET, POST, PUT, DELETE, etc.
           }).then((response) => {
               if (isFromCategories) {
@@ -21,7 +21,7 @@ class ApiTransport {
 
     writeComment(requestData) {
         return axios.post(
-            'https://37.79.216.230:44396/api/comments/addcomment',
+            'http://37.79.216.230:59614/api/comments/addcomment',
             JSON.stringify(requestData),
             {
                 headers: {
@@ -34,7 +34,7 @@ class ApiTransport {
 
     createNewAccount(requestData) {
         return axios.post(
-            'https://37.79.216.230:44396/api/account/register',
+            'http://37.79.216.230:59614/api/account/register',
             JSON.stringify(requestData),
             {
                 headers: {
@@ -46,7 +46,7 @@ class ApiTransport {
 
     authorization(requestData) {
         return axios.post(
-            'https://37.79.216.230:44396/api/account/login',
+            'http://37.79.216.230:59614/api/account/login',
             JSON.stringify(requestData),
             {
                 headers: {
@@ -58,7 +58,7 @@ class ApiTransport {
 
     addgame(requestData) {
         return axios.post(
-            'https://37.79.216.230:44396/api/games/addgame',
+            'http://37.79.216.230:59614/api/games/addgame',
             JSON.stringify(requestData),
             {
                 headers: {
@@ -70,7 +70,7 @@ class ApiTransport {
 
     addcategory(requestData) {
         return axios.post(
-            'https://37.79.216.230:44396/api/categories/addcategory',
+            'http://37.79.216.230:59614/api/categories/addcategory',
             JSON.stringify(requestData),
             {
                 headers: {
@@ -83,7 +83,7 @@ class ApiTransport {
 
     authValidation(token) {
         return axios.get(
-            'https://37.79.216.230:44396/api/account/authcheck',
+            'http://37.79.216.230:59614/api/account/authcheck',
             {
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -94,7 +94,7 @@ class ApiTransport {
 
     getComments(gameId) {
         return axios.post(
-            'https://37.79.216.230:44396/api/comments/getcommentsfromgame',
+            'http://37.79.216.230:59614/api/comments/getcommentsfromgame',
             JSON.stringify({ gameId }),
             {
                 headers: {
@@ -106,13 +106,13 @@ class ApiTransport {
 
     getAllCategories() {
         return axios.get(
-            'https://37.79.216.230:44396/api/categories/getallcategories'
+            'http://37.79.216.230:59614/api/categories/getallcategories'
         )
     }
 
     getProfileInfo() {
         return axios.get(
-            'https://37.79.216.230:44396/api/account/getprofile',
+            'http://37.79.216.230:59614/api/account/getprofile',
             {
                 headers: {
                     'Authorization': `Bearer ${sessionStorage.getItem('token')}`

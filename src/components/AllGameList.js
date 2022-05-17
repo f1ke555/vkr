@@ -10,6 +10,7 @@ import {useHistory} from "react-router-dom";
 const AllGameList = (props) => {
  const [games, setGames] = useState([]);
  const { hasCategories, gamesIds } = props;
+ const [filteredGames, setFilteredGames] = useState([]);
  const history = useHistory();
 
   useEffect(() => {
@@ -23,9 +24,14 @@ const AllGameList = (props) => {
   useEffect(() => {
       apiService._allGames$.subscribe((games) => setGames([...games]));
   }, []);
+
+    useEffect(() => {
+        const filterArray = games.filter((item) => item.name.includes(props.searchText));
+        setFilteredGames(filterArray)
+    }, [props.searchText, games])
   return (
       <Row>
-        {games.map((device) => (
+        {filteredGames && filteredGames.map((device) => (
               <Col className="col-md-6 pt-4">
                 <AllGameItem key={device.id} device={device} />
               </Col>
