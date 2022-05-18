@@ -20,11 +20,11 @@ const Shop = () => {
           </h3>
           <h1 style={{paddingTop: "35px", paddingBottom: "40px"}}
               className="d-flex justify-content-center">
-              Какой <span className="color-text">предмет </span> вы хотите освоить?
+              Какой <span style={{padding: '0 10px'}} className="color-text">предмет</span> вы хотите освоить?
           </h1>
       <input
         className="form-control input-find mt-3"
-        placeholder="Начните искать игру или #категорию"
+        placeholder="Начните искать @игру или #категорию"
         onChange={handleChange}
       />
           <div className="">
@@ -42,7 +42,7 @@ const Shop = () => {
           <div style={{position: "relative"}}>
               <div className="knopkagame"></div>
               <div className="knopkagameright"></div>
-              <DeviceList searchText={!searchText.includes('#') ? searchText : ''}/>
+              <DeviceList searchText={searchText.includes('@') ? searchText.replace('@', '') : ''}/>
           </div>
     </Container>
       

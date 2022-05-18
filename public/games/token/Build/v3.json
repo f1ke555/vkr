@@ -1,10 +1,10 @@
 {
 "companyName": "DefaultCompany",
-"productName": "diplom",
+"productName": "magician",
 "productVersion": "0.1",
-"dataUrl": "tokentest.data.unityweb",
-"wasmCodeUrl": "tokentest.wasm.code.unityweb",
-"wasmFrameworkUrl": "tokentest.wasm.framework.unityweb",
+"dataUrl": "22.data.unityweb",
+"wasmCodeUrl": "22.wasm.code.unityweb",
+"wasmFrameworkUrl": "22.wasm.framework.unityweb",
 "graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
 "webglContextAttributes": {"preserveDrawingBuffer": false},
 "splashScreenStyle": "Dark",
@@ -12,5 +12,5 @@
 "cacheControl": {"default": "must-revalidate"},
 "developmentBuild": false,
 "multithreading": false,
-"unityVersion": "2019.4.21f1"
+"unityVersion": "2019.4.1f1"
 }

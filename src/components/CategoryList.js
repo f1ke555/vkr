@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useCallback, useEffect, useRef, useState} from "react";
 import "../style/style.css";
 import HorizontalScroll from "react-scroll-horizontal";
 import CategoryItem from "./CategoryItem";
@@ -25,21 +25,27 @@ const CategoryList = (props) => {
     const handleClick = (name, games) => {
         history.push(ALLGAME_ROUTE, { hasCategories: true, name, games })
     }
+
+    const scroll = useRef(null)
+    const handleWheel = (event) => {
+        event.preventDefault();
+        scroll.current.scrollLeft += event.deltaY;
+    }
   return (
     <div
         className="mt-3 d-flex justify-content-center">
-      <HorizontalScroll style={{ height: "200px", width: "970px" }}>
-        {filteredCategories && filteredCategories.map((type) => (
-          <div
-            className="main"
-            style={{ cursor: "pointer" }}
-            key={type.id}
-            onClick={handleClick.bind(null, type.name, type.games)}
-          >
-            <CategoryItem key={type.id} type={type} />
-          </div>
-        ))}
-      </HorizontalScroll>
+        <div style={{ height: "200px", width: "970px" }} onWheel={handleWheel} ref={scroll} className="custom-slider">
+            {filteredCategories && filteredCategories.map((type) => (
+                <div
+                    className="main"
+                    style={{ cursor: "pointer" }}
+                    key={type.id}
+                    onClick={handleClick.bind(null, type.name, type.games)}
+                >
+                    <CategoryItem key={type.id} type={type} />
+                </div>
+            ))}
+        </div>
     </div>
   );
 };

@@ -27,9 +27,17 @@ const AllGameList = (props) => {
   }, []);
 
     useEffect(() => {
+        if (props.gameNames) {
+            setFilteredGames(props.gameNames.filter((item) => item.name.includes(props.searchText)))
+            return
+        }
         const filterArray = games.filter((item) => item.name.includes(props.searchText));
         setFilteredGames(filterArray)
-    }, [props.searchText, games])
+    }, [props.searchText, games, props.gameNames])
+
+
+
+
   return (
       <Row>
         {filteredGames && filteredGames.map((device) => (

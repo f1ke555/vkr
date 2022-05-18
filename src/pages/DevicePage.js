@@ -18,8 +18,10 @@ const DEFAULT_STATE = {
   },
   commentText: '',
   comments: [],
-  max_length: 120,
+
 }
+
+
 
 function DevicePage() {
   const [state, setState] = useState(DEFAULT_STATE);
@@ -66,7 +68,7 @@ function DevicePage() {
   }
 
   return (
-    <div className="container">    
+    <div className="container">
       <h1 className="mt-4 color-text">{state.mainData.name}</h1>
       { state.mainData.name &&
         <Unity
@@ -96,6 +98,8 @@ function DevicePage() {
                 <div>
                   <h2 className="color-text">Комментарий:</h2>
                   <input
+                      id="test"
+                      contentEditable="true"
                       className="form-control input-find mt-3 input-com"
                       name="comment"
                       value={state.commentText}

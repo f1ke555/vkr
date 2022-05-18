@@ -187,7 +187,6 @@ function Profile () {
           Выйти из аккаунта
         </button>
       </div>
-
     </Container>
   );
 };

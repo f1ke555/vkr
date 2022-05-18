@@ -32,6 +32,54 @@ body {
   color: #FFFFFF !important;
 }
 
+.main-category-card {
+  position: absolute;
+  background: linear-gradient(97.44deg, #FE6E4E -31.54%, #FE4E4E 124.51%), #EDEDED;
+  box-shadow: 0px 1px 4px 1px rgba(0, 0, 0, 0.5);
+  border-radius: 2px !important;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 11px;
+  color: #FFFFFF !important;
+  top: 110px;
+  left: 15px;
+}
+
+div.first ~ div.fourth {
+  display: none;
+}
+div.first:hover ~ div.fourth {
+  display: block;
+}
+
+.back-card-game {
+  position: absolute;
+  background: #4D286D;
+  box-shadow: 0px -1px 7px rgba(0, 0, 0, 0.3);
+  border-radius: 7px;
+  width: 228px;
+  height: 82px;
+  top: 66px;
+}
+
+.main-category-views {
+  position: absolute;
+  width: 35px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 1px 4px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 12px;
+  color: #28073E;
+  top: 6px;
+  left: 180px;
+  text-align: right;
+  padding-right: 2px;
+  padding-top: 1px;
+}
+
 .card-views {
   position: absolute;
   width: 35px;
@@ -54,7 +102,8 @@ body {
   position: absolute;
   width: 40px;
   height: 70px;
-  background: linear-gradient(97.44deg, rgba(254, 110, 78, 0.3) -31.54%, rgba(254, 78, 78, 0.3) 124.51%);
+  background: linear-gradient(97.44deg, rgba(254, 110, 78, 0.9) -31.54%, rgba(254, 78, 78, 0.9) 124.51%);
+  box-shadow: 0px 4px 11px 1px rgba(0, 0, 0, 0.13);
   border-radius: 5px;
   left: 100px;
   top: 30%;
@@ -76,7 +125,8 @@ body {
   position: absolute;
   width: 40px;
   height: 70px;
-  background: linear-gradient(97.44deg, rgba(254, 110, 78, 0.3) -31.54%, rgba(254, 78, 78, 0.3) 124.51%);
+  background: linear-gradient(97.44deg, rgba(254, 110, 78, 0.9) -31.54%, rgba(254, 78, 78, 0.9) 124.51%);
+  box-shadow: 0px 4px 11px 1px rgba(0, 0, 0, 0.13);
   border-radius: 5px;
   left: 100px;
   top: 20%;
@@ -163,6 +213,25 @@ h5 {
   font-weight: 500;
 }
 
+h5 {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 85%;
+  color: #FFFFFF;
+}
+
+h6 {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 110%;
+  color: #FFFFFF;
+}
+
+.game-card-text {
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
 .no-comment {
   padding-top: 100px;
   font-weight: 500;
@@ -241,6 +310,11 @@ img {
   padding-left: 15px;
 }
 
+.custom-slider {
+  display: flex;
+  overflow-x: hidden;
+}
+
 .img-input-group {
   position: absolute;
   margin-top: 113px;
@@ -259,6 +333,12 @@ img {
   padding-left: 15px;
 }
 
+.error{
+  position: absolute;
+  right: 318px;
+  bottom: 27px;
+  z-index: 1;
+}
 
 .form {
   position: relative;
@@ -270,9 +350,62 @@ img {
   padding-left: 15px
 }
 
-.validation {
-  color: red;
-  font-size: 13px;
+.validation-name {
+  position: absolute;
+  width: 266px;
+  height: 77px;
+  background: #49155E;
+  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  left: 550px;
+  top: 3px;
+}
+.validation-email {
+  position: absolute;
+  width: 266px;
+  height: 77px;
+  background: #49155E;
+  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  left: 550px;
+  top: 173px;
+}
+.validation-group {
+  position: absolute;
+  width: 266px;
+  height: 77px;
+  background: #49155E;
+  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  left: 550px;
+  top: 258px;
+}
+
+.error-text {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 85%;
+  padding-top: 10px;
+  padding-left: 10px;
+  background: linear-gradient(132.91deg, #FF5F54 -157.2%, #E80000 194.36%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.error-discryption {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 110%;
+  color: #FFFFFF;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  padding-left: 10px;
+  padding-top: 5px;
 }
 
 .search-icon {
@@ -426,6 +559,26 @@ img {
   font-weight: 700;
 }
 
+.help-function {
+  position: absolute;
+  width: 400px;
+  height: 85px;
+  left: 1050px;
+  top: 265px;
+  background: #49155E;
+  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFFFFF;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  text-align: center;
+  padding-top: 15px;
+}
+
 .form-control:focus {
   box-shadow: none;
 }
@@ -458,8 +611,6 @@ img {
 
 .color-text {
   color: #FE6E4E;
-  padding: 0px 10px;
-;
 }
 .type-bar {
   background-color: transparent;
@@ -531,6 +682,11 @@ img {
   border-radius: 8px;
   margin: 0 auto;
   font-weight: 700;
+}
+
+.input-game {
+  margin: 0 !important;
+  width: 970px !important;
 }
 
 .input-com {

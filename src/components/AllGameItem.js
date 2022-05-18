@@ -15,7 +15,6 @@ const AllGameItem = ({ device }) => {
             <img src={`/gameCards/${device.name}.png`} height="150px" width="270px" style={{marginLeft: '12px', marginTop: '10px'}}/>
             <Chip className="category-card" label={device.name}/>
             <div className="card-views">196</div>
-            <div></div>
           </div>
           <div>
             <div className="color-text pt-2">{device.name}</div>

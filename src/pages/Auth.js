@@ -12,6 +12,8 @@ import {apiTransport} from "../transport/api.transport";
 import {Context} from "../index";
 import logotip from "../assets/logotip.png";
 import show from "../assets/show.png"
+import help from "../assets/help.png"
+import validation from "../assets/validation.png"
 
 
 const DEFAULT_FORM_VALUES = {
@@ -151,7 +153,18 @@ const Auth = () => {
             )}
           </div>
           <h1 className="m-0 mt-5">{isLogin ? <div>C <span className="color-text">возвращением</span>!</div> : <div><span className="color-text">Создание</span> аккаунта</div>}</h1>
-          <div className="m-0">{isLogin ? <div>Мы рады, что Вы снова используете нашу платформу</div> : <div>Создайте аккаунт и вам откроются новые функции</div>}</div>
+          <div className="m-0">
+            {isLogin ?
+                <div>Мы рады, что Вы снова используете нашу платформу</div>
+              :
+                <div className="d-flex">
+                  <div>Создайте аккаунт и вам откроются новые функции</div>
+                  <div className="first"><img src={help}></img></div>
+                  <div className="fourth help-function">Аккаунт нужен для того, чтобы оставлять комментарии, отслеживать и сохранять игровой прогресс и многое другое</div>
+                </div>
+
+          }
+          </div>
           {isLogin ? (
 
               <Form className="d-flex flex-column">
@@ -204,7 +217,7 @@ const Auth = () => {
                 <div className="img-input-mail"><img src={mail_outline}></img></div>
                 <div className="img-show-password">
                   <button
-                      style={{background: "transparent", border: '0'}}
+                      style={{background: "transparent", border: '0', paddingRight: "10px"}}
                       onClick={toggleBtn}>
                     <img src={show}/>
                   </button>
@@ -219,9 +232,29 @@ const Auth = () => {
                 />
                 <div className="img-input-password"><img src={vpn_key}></img></div>
 
-                {(nameDirty && nameError) && <div className="validation">{nameError}</div>}
-                {(emailDirty && emailError) && <div className="validation">{emailError}</div>}
-                {(passwordDirty && passwordError) && <div className="validation">{passwordError}</div>}
+                {(nameDirty && nameError) &&
+                    <div className="validation-name">
+                      <div className="error-text">{nameError}</div>
+                      <div className="error-discryption">Возможно, Вы ввели неправильный домен или пропустили букву</div>
+                      <div className="error"><img src={validation}></img></div>
+                    </div>
+
+                }
+                {(emailDirty && emailError) &&
+                    <div className="validation-email">
+                      <div className="error-text">{emailError}</div>
+                      <div className="error-discryption">Возможно, Вы ввели неправильный домен или пропустили букву</div>
+                      <div className="error"><img src={validation}></img></div>
+                    </div>
+
+                }
+                {(passwordDirty && passwordError) &&
+                    <div className="validation-group">
+                      <div className="error-text">{passwordError}</div>
+                      <div className="error-discryption">Возможно, Вы ввели неправильный домен или пропустили букву</div>
+                      <div className="error"><img src={validation}></img></div>
+                    </div>
+                }
                 <Button disabled = {!formValid} className="mt-4" variant={"primary"} onClick={handleRegistrationClick}>
                   Регистрация
                 </Button>
