@@ -5,8 +5,7 @@ import NavBar from "./components/NavBar";
 import "./style/style.css";
 import {apiTransport} from "./transport/api.transport";
 import {Context} from "./index";
-import urfu from "./assets/urfu.png";
-import input_find from "./assets/input_find.png";
+
 
 function App() {
   const getKey = sessionStorage.getItem('token');
