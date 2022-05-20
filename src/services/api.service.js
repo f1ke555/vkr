@@ -1,5 +1,5 @@
 import { apiTransport } from "../transport/api.transport";
-import {BehaviorSubject, tap} from "rxjs"
+import {BehaviorSubject} from "rxjs"
 
 class ApiService {
     _allGames$ = new BehaviorSubject([]);

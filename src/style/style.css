@@ -84,6 +84,12 @@ div.first:hover ~ div.fourth {
   padding-top: 1px;
 }
 
+.icon-views {
+  position: absolute;
+  top: 4px;
+  right: 22px;
+}
+
 .card-views {
   position: absolute;
   width: 35px;
@@ -412,6 +418,17 @@ a:hover {
   top: 258px;
 }
 
+.validation-group-auth {
+  position: absolute;
+  width: 266px;
+  height: 77px;
+  background: #49155E;
+  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  top: -82px;
+  left: 539px;
+}
+
 .error-text {
   font-weight: 700;
   font-size: 14px;
@@ -641,6 +658,25 @@ a:hover {
   bottom: 20px;
 }
 
+.navbar-name {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 85%;
+  background: linear-gradient(96.58deg, #FE6E4E -32.76%, #FE4E4E 126.16%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  padding-top: 10px;
+  padding-bottom: 6px;
+}
+
+.navbar-group {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 85%;
+  color: #FFFFFF;
+  text-align: end;
+}
 
 .color-text {
   color: #FE6E4E;

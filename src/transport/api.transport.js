@@ -45,17 +45,7 @@ class ApiTransport {
 
 
 
-    authorization(requestData) {
-        return axios.post(
-            'http://37.79.216.230:59614/api/account/login',
-            JSON.stringify(requestData),
-            {
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }
-        )
-    }
+
 
     addgame(requestData) {
         return axios.post(
@@ -81,6 +71,17 @@ class ApiTransport {
         )
     }
 
+    authorization(requestData) {
+        return axios.post(
+            'http://37.79.216.230:59614/api/account/login',
+            JSON.stringify(requestData),
+            {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+        )
+    }
 
     authValidation(token) {
         return axios.get(

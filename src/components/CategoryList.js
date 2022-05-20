@@ -6,6 +6,7 @@ import {apiTransport} from "../transport/api.transport";
 import {ALLGAME_ROUTE} from "../utils/consts";
 import {useHistory} from "react-router-dom";
 
+
 const CategoryList = (props) => {
   const [categories, setCategories] = useState([]);
   const [filteredCategories, setFilteredCategories] = useState([]);
@@ -42,7 +43,7 @@ const CategoryList = (props) => {
                     key={type.id}
                     onClick={handleClick.bind(null, type.name, type.games)}
                 >
-                    <CategoryItem key={type.id} type={type} />
+                    <CatгegoryItem key={type.id} type={type} />
                 </div>
             ))}
         </div>

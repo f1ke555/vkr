@@ -33,9 +33,11 @@ const Auth = () => {
   const [passwordError, setPasswordError] = useState('Пароль не может быть пустым');
   const [nameDirty, setNameDirty] = useState(false);
   const [nameError, setNameError] = useState('ФИО не может быть пустым')
-  const [formValid, setFormValid] = useState(false)
-  const [state, setState] = useState(false)
-  const [showPassword, setShowPassword] = useState(false)
+  const [formValid, setFormValid] = useState(false);
+  const [state, setState] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [errorLogin, setErrorLogin] = useState('');
+  const [loginDirty, setLoginDirty] = useState(false);
 
   const history = useHistory();
   const { user } = useContext(Context);
@@ -45,11 +47,8 @@ const Auth = () => {
         .then((response) => console.log(response))
         .catch(function (error) {
           if (error.response) {
-            // The request was made and the server responded with a status code
-            // that falls out of the range of 2xx
-            console.log(error.response.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
+            setErrorLogin('Пользователь с такой почтой уже существует')
+            setLoginDirty(true)
           }
         });
   }
@@ -71,9 +70,8 @@ const Auth = () => {
           history.push('/');
         }).catch(function (error) {
           if (error.response) {
-            console.log(error.response.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
+            setErrorLogin('Неверной имя пользователя или пароль')
+            setLoginDirty(true)
           }
         });
   }
@@ -211,7 +209,17 @@ const Auth = () => {
                     </button>
                   </div>
                 </div>
-
+                <div style={{position: 'relative'}}>
+                  {loginDirty ?
+                      <div className="validation-group-auth">
+                        <div className="error-text">{errorLogin}</div>
+                        <div className="error-discryption">Возможно, Вы ввели неправильный домен или пропустили букву</div>
+                      </div>
+                      :
+                      <div></div>
+                  }
+                </div>
+                <div></div>
                 <Button className="mt-4" variant="primary" onClick={handleLogin}>
                   Войти
                 </Button>
@@ -291,6 +299,16 @@ const Auth = () => {
                       </button>
                     </div>
                 }
+                <div style={{position: 'relative'}}>
+                  {loginDirty ?
+                      <div className="validation-group-auth">
+                        <div className="error-text">{errorLogin}</div>
+                        <div className="error-discryption">Попробуйте изменить почту</div>
+                      </div>
+                      :
+                      <div></div>
+                  }
+                </div>
                 <Button disabled = {!formValid} className="mt-4" variant={"primary"} onClick={handleRegistrationClick}>
                   Регистрация
                 </Button>

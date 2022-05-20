@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { DEVICE_ROUTE } from "../utils/consts";
 import "../style/style.css";
 import {Chip} from "@mui/material";
+import views from "../assets/views.png";
 
 const AllGameItem = ({ device }) => {
   const history = useHistory();
@@ -14,7 +15,12 @@ const AllGameItem = ({ device }) => {
           <div style={{ position: "relative", display: "inline-block"}}>
             <img src={`/gameCards/${device.name}.png`} height="150px" width="270px" style={{marginLeft: '12px', marginTop: '10px'}}/>
             <Chip className="category-card" label={device.name}/>
-            <div className="card-views">196</div>
+            <div className="card-views">
+              196
+              <div>
+                <img className="icon-views" src={views}/>
+              </div>
+            </div>
           </div>
           <div>
             <div className="color-text pt-2">{device.name}</div>

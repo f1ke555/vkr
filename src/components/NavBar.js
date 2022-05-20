@@ -21,6 +21,8 @@ import game from "../assets/game.png";
 import category from "../assets/category.png";
 import {apiTransport} from "../transport/api.transport";
 import logo from "../assets/logo.png"
+import photo_navbar from "../assets/photo_navbar.png";
+import logout from "../assets/logout.png";
 
 const DEFAULT_PROFILE_INFO = {
     "id":0,
@@ -84,14 +86,17 @@ const NavBar = observer(() => {
 
         {user.isAuth ? (
           <Nav className="ml-auto">
-            <Button onClick={() => history.push(PROFILE_ROUTE)}>
-              Профиль
-            </Button>
-            <button
-            onClick={() => logOut()} className="ms-2 btn-secondary"
-            >
-              Выйти
-            </button>
+              <div className="d-flex">
+                  <div>
+                      <div className="navbar-name">{profileInfo.name}</div>
+                      <div className="navbar-group">{profileInfo.group}</div>
+                  </div>
+                  <img onClick={() => history.push(PROFILE_ROUTE)} style={{paddingLeft: '10px', cursor: "pointer"}} src={photo_navbar}/>
+                  <div onClick={() => logOut()}>
+                      <img style={{paddingLeft: '10px', paddingTop: "6px", cursor: "pointer"}} src={logout}/>
+                  </div>
+              </div>
+
           </Nav>
         ) : (
           <Nav className="ml-auto">
