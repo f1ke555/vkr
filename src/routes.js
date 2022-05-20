@@ -16,6 +16,7 @@ import Profile from "./pages/Profile";
 import GamePage from "./pages/GamePage"
 import Category from "./pages/Category";
 
+
 export const authRoutes = [
   {
     path: ADMIN_ROUTE,

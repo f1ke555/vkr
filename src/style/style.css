@@ -16,7 +16,11 @@
 }
 
 body {
-  background: linear-gradient(90deg, #420D55 -8.01%, #2A0A47 113.26%), #2A0A47
+  background: linear-gradient(90deg, #420D55 -8.01%, #2A0A47 113.26%), #2A0A47;
+}
+
+.hidden {
+  overflow: hidden;
 }
 
 .category-card {
@@ -241,15 +245,42 @@ h6 {
 }
 
 .input-modal {
-  padding-left: 10px !important;
+  padding-left: 40px !important;
   width: 380px;
   height: 45px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 85%;
+  color: #FFFFFF;
 }
 
 
 
 .input-modal:disabled {
-  background-color: #cf3f3f;
+  background: #49155E;
+  border-radius: 5px;
+  border: 0;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 85%;
+  color: #735686;
+}
+
+.input-modal::placeholder {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 85%;
+  color: #735686;
+}
+
+.custom-chip {
+  background: #735686 !important;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25) !important;
+  border-radius: 3px !important;
+  font-weight: 700 !important;
+  font-size: 12px !important;
+  line-height: 110% !important;
+  color: #FFFFFF !important;
 }
 
 .input-select {
@@ -258,8 +289,8 @@ h6 {
 
 .img-show-password {
   position: absolute;
-  left: 447px;
-  top: 278px;
+  left: 457px;
+  top: 283px;
 }
 .description {
   padding-top: 3px;
@@ -286,10 +317,6 @@ a:hover {
   color: #cf593f;
 }
 
-img {
-  border-radius: 12px;
-}
-
 .img-input {
   height: 26px;
   width: 26px;
@@ -313,6 +340,8 @@ img {
 .custom-slider {
   display: flex;
   overflow-x: hidden;
+  width: 970px;
+  height: 220px;
 }
 
 .img-input-group {
@@ -329,9 +358,11 @@ img {
 
 .img-input-password-reg {
   position: absolute;
-  margin-top: 113px;
-  padding-left: 15px;
+  top: 29px;
+  left: 16px;
 }
+
+
 
 .error{
   position: absolute;
@@ -484,12 +515,13 @@ img {
 }
 
 .btn-nav {
-  font-size: 16px;
   color: #fff;
   background: transparent;
   border: 0;
   padding-left: 75px;
   font-weight: 700;
+  font-size: 12px;
+  line-height: 85%;
 }
 
 
@@ -606,8 +638,9 @@ img {
   font-size: 14px;
   position: absolute;
   left: 370px;
-  top: 15px;
+  bottom: 20px;
 }
+
 
 .color-text {
   color: #FE6E4E;
@@ -689,6 +722,11 @@ img {
   width: 970px !important;
 }
 
+.input-category {
+  width: 100% !important;
+  margin-top: 20px;
+}
+
 .input-com {
   width: 485px;
   height: 96px;
@@ -698,6 +736,29 @@ img {
   position: absolute;
   left: 84%;
 }
+
+.navbar-icon {
+  position: relative;
+  cursor: pointer;
+}
+
+.navbar-icon-abs {
+  position: relative;
+  left: 78px;
+}
+
+.navbar-icon-category {
+  position: relative;
+  left: 87px;
+}
+
+.navbar-icon-game {
+  position: relative;
+  left: 81px;
+  padding-top: 15px;
+}
+
+
 
 .input-find::placeholder {
   color: #fff;

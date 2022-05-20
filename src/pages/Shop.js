@@ -2,9 +2,7 @@ import React, {useState} from "react";
 import { Container } from "react-bootstrap";
 import DeviceList from "../components/DeviceList";
 import CategoryList from "../components/CategoryList";
-import search_icon from "../assets/search_icon.png"
-import arrow from "../assets/arrow.png";
-
+import input_find from "../assets/input_find.png";
 
 const Shop = () => {
     const [searchText, setSearchText] = useState('');
@@ -22,11 +20,14 @@ const Shop = () => {
               className="d-flex justify-content-center">
               Какой <span style={{padding: '0 10px'}} className="color-text">предмет</span> вы хотите освоить?
           </h1>
-      <input
-        className="form-control input-find mt-3"
-        placeholder="Начните искать @игру или #категорию"
-        onChange={handleChange}
-      />
+          <div style={{position: "relative"}}>
+              <div style={{position: "absolute", left: "323px", top: '9px'}} className=""><img src={input_find}></img></div>
+              <input
+                  className="form-control input-find mt-3"
+                  placeholder="Начните искать @игру или #категорию"
+                  onChange={handleChange}
+              />
+          </div>
           <div className="">
               <h2 className="mt-5 mn-5 d-flex justify-content-center"
               >Категории</h2>

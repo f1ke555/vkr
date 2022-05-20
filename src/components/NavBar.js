@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, {useContext, useEffect, useState} from "react";
 import { Context } from "../index";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
@@ -16,9 +16,30 @@ import { Button } from "react-bootstrap";
 import { observer } from "mobx-react-lite";
 import Container from "react-bootstrap/Container";
 import { useHistory } from "react-router-dom";
+import home from "../assets/home.png";
+import game from "../assets/game.png";
+import category from "../assets/category.png";
+import {apiTransport} from "../transport/api.transport";
+import logo from "../assets/logo.png"
+
+const DEFAULT_PROFILE_INFO = {
+    "id":0,
+    "login":"",
+    "password":"",
+    "name":"",
+    "group":"",
+    "savedData": []
+}
+
 const NavBar = observer(() => {
   const { user } = useContext(Context);
   const history = useHistory();
+
+    const [profileInfo, setProfileInfo] = useState(DEFAULT_PROFILE_INFO)
+    useEffect(() => {
+        apiTransport.getProfileInfo()
+            .then(resp => setProfileInfo(resp.data))
+    }, []);
 
   const logOut = () => {
     user.setUser({});
@@ -30,22 +51,35 @@ const NavBar = observer(() => {
   return (
     <Navbar className="navbar navbar-expand-lg">
       <Container>
-          <NavLink to={SHOP_ROUTE}>LOGO</NavLink>
-<div>
-          <button className="btn-nav"
-                  onClick={() => history.push(SHOP_ROUTE)}>
+          <NavLink to={SHOP_ROUTE}><img src={logo}/></NavLink>
+<div className="d-flex navbar-icon">
+    <div onClick={() => history.push(SHOP_ROUTE)}>
+        <div className="navbar-icon-abs"><img src={home}></img></div>
+        <button className="btn-nav"
+                onClick={() => history.push(SHOP_ROUTE)}>
             Главная
-          </button>
-          <button className="btn-nav"
-                  onClick={() => history.push(CATEGORY_ROUTE)}
-          >
+        </button>
+    </div>
+    <div>
+        <div
+            onClick={() => history.push(CATEGORY_ROUTE)}
+            className="navbar-icon-category"><img src={category}></img></div>
+        <button className="btn-nav"
+                onClick={() => history.push(CATEGORY_ROUTE)}
+        >
             Категории
-          </button>
-          <button className="btn-nav"
-                  onClick={() => history.push(ALLGAME_ROUTE)}
-          >
+        </button>
+    </div>
+    <div>
+        <div
+            onClick={() => history.push(ALLGAME_ROUTE)}
+            className="navbar-icon-game"><img src={game}></img></div>
+        <button className="btn-nav"
+                onClick={() => history.push(ALLGAME_ROUTE)}
+        >
             Все игры
-          </button>
+        </button>
+    </div>
         </div>
 
         {user.isAuth ? (

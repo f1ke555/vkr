@@ -27,14 +27,14 @@ const CategoryList = (props) => {
     }
 
     const scroll = useRef(null)
-    const handleWheel = (event) => {
-        event.preventDefault();
-        scroll.current.scrollLeft += event.deltaY;
+    const handleWheel = (e) => {
+        e.preventDefault();
+        scroll.current.scrollLeft += e.deltaY;
     }
   return (
     <div
         className="mt-3 d-flex justify-content-center">
-        <div style={{ height: "200px", width: "970px" }} onWheel={handleWheel} ref={scroll} className="custom-slider">
+        <div onWheel={handleWheel} ref={scroll} className="custom-slider">
             {filteredCategories && filteredCategories.map((type) => (
                 <div
                     className="main"

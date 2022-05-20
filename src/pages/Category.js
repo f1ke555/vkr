@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import { observer } from "mobx-react-lite";
-import search_icon from "../assets/search_icon.png"
 import AllCategoryList from "../components/AllCategoryList";
 import {apiTransport} from "../transport/api.transport";
 import {useHistory} from "react-router-dom";
 import {ALLGAME_ROUTE} from "../utils/consts";
+import input_find from "../assets/input_find.png";
 
 const Category = () => {
     const [searchText, setSearchText] = useState('');
@@ -21,11 +20,14 @@ const Category = () => {
 
   return (
       <Container>
-      <input
-        className="form-control input-find mt-3"
-        placeholder="Начните вводить название для поиска"
-        onChange={handleChange}
-      />
+          <div style={{position: "relative"}}>
+              <div style={{position: "absolute", left: '8px', top: '8px'}} className=""><img src={input_find}></img></div>
+              <input
+                  className="form-control input-find input-category"
+                  placeholder="Начните вводить название для поиска"
+                  onChange={handleChange}
+              />
+          </div>
           <div className="d-flex justify-content-between">
               <h2 className="mt-5">Категории</h2>
               <button

@@ -1,12 +1,10 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import { Container } from "react-bootstrap";
 import AllGameList from "../components/AllGameList";
 import {useHistory} from "react-router-dom";
 import {ALLGAME_ROUTE} from "../utils/consts";
 import {apiTransport} from "../transport/api.transport";
-import CategoryItem from "../components/CategoryItem";
-import {Autocomplete, TextField} from "@mui/material";
-
+import input_find from "../assets/input_find.png";
 
 const Shop = (props) => {
   const history = useHistory();
@@ -42,7 +40,8 @@ const Shop = (props) => {
               </button> : ' '}</h1>
           </div>
           <h4 style={{fontWeight: "500"}}>Используйте площадку по максимуму и, главное, никогда не переставайте обучаться</h4>
-          <div className="d-flex pt-4">
+          <div style={{position: "relative"}} className="d-flex pt-4">
+              <div style={{position: "absolute", left: '10px', top: '31px'}} className=""><img src={input_find}></img></div>
               <input
                   className="form-control input-find input-game mt-3"
                   placeholder="Начните вводить название для поиска"

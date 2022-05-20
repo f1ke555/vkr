@@ -5,6 +5,9 @@ import {Autocomplete, Chip, TextField, Modal, Typography} from "@mui/material";
 import {Box} from "@mui/system";
 import {Context} from "../index";
 import {useHistory} from "react-router-dom";
+import vpn_key from "../assets/vpn_key.png";
+import mail_outline from "../assets/mail_outline.png";
+import photo from "../assets/photo.png";
 
 const DEFAULT_PROFILE_INFO = {
   "id":0,
@@ -75,10 +78,13 @@ function Profile () {
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             <div className="d-flex justify-content-between">
-              <div>
+              <div style={{position: "relative"}}>
                 <h4>Основная информация</h4>
+                <div style={{position: "absolute", left: "12px", top: "33px"}}><img src={vpn_key}></img></div>
                 <input className="input-modal form-control" disabled="true" placeholder={profileInfo.name}/>
+                <div style={{position: "absolute", left: "12px", top: "90px"}}><img src={vpn_key}></img></div>
                 <input className="input-modal form-control" disabled="true" placeholder={profileInfo.group}/>
+                <div style={{position: "absolute", left: "12px", top: "145px"}}><img src={mail_outline}></img></div>
                 <select style={{lineHeight: '24px'}} className="input-modal form-control" placeholder="Введите номер курса">
                   <option className="form-control" value="value1">1</option>
                   <option className="form-control" value="value2">2</option>
@@ -86,7 +92,9 @@ function Profile () {
                   <option className="form-control" value="value2">4</option>
                   <option className="form-control" value="value3">5</option>
                 </select>
+                <div style={{position: "absolute", left: "12px", top: "200px"}}><img src={mail_outline}></img></div>
                 <input className="input-modal form-control" placeholder="Введите название института"/>
+                <div style={{position: "absolute", left: "12px", top: "255px"}}><img src={mail_outline}></img></div>
                 <input className="input-modal form-control" placeholder="Введите название направления"/>
               </div>
               <div>
@@ -97,10 +105,9 @@ function Profile () {
                     onChange={(e, value) => setReceivers((state) => value)}
                     id="tags-filled"
                     options={competency.map((option) => option.title)}
-                    freeSolo
                     renderTags={(value, getTagProps) =>
                         value.map((option, index) => (
-                            <Chip color="warning" label={option} {...getTagProps({ index })} />
+                            <Chip className="custom-chip" label={option} {...getTagProps({ index })} />
                         ))
                     }
                     renderInput={(params) => (
@@ -114,10 +121,11 @@ function Profile () {
                 />
                 <div style={{paddingTop: "58px"}}>
                   <h4>Контактная информация</h4>
+                  <div style={{position: "absolute", left: "572px", top: "298px"}}><img src={vpn_key}></img></div>
                   <input className="input-modal form-control" disabled placeholder={profileInfo.login}/>
                 </div>
 
-
+                <div style={{position: "absolute", left: "572px", top: "352px"}}><img src={mail_outline}></img></div>
                 <input className="input-modal form-control"  placeholder="Введите номер телефона"/>
               </div>
               </div>
@@ -136,11 +144,7 @@ function Profile () {
         <div class="col-6">
           <Card style={{ height: "471px" }}>
             <div className="d-flex">
-              <Image
-                width={145}
-                height={145}
-                src="http://www.camaracambuquira.mg.gov.br/images/lofthumbs/500x250/images/stories/maquete1.jpg"
-              />
+             <img style={{position: "relative", right: "13px"}} src={photo}/>
               <div className="ms-3">
                 <div>{profileInfo.name}</div>
                 <div className="name-group">{profileInfo.group}</div>

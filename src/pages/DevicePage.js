@@ -1,10 +1,10 @@
 import React, {useContext, useEffect, useState} from "react";
-import { Card } from "react-bootstrap";
 import { apiService } from "../services/api.service";
 import { useLocation } from "react-router-dom";
 import { Unity } from "react-unity-webgl";
 import {apiTransport} from "../transport/api.transport";
 import {Context} from "../index";
+import {Chip} from "@mui/material";
 
 const DEFAULT_STATE = {
   mainData: {
@@ -90,6 +90,7 @@ function DevicePage() {
       >
         {state.mainData.description}
       </h4>
+      <Chip className="custom-chip mt-4" label={state.mainData.category.name} />
       <div className="d-flex">
         <div>
           <label className="pt-4">

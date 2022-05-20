@@ -1,7 +1,6 @@
 import React, {useContext, useEffect, useState} from "react";
 import {NavLink, useHistory, useLocation} from "react-router-dom";
 import { Container, Form, Image } from "react-bootstrap";
-import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { LOGIN_ROUTE, REGISTRATION_ROUTE } from "../utils/consts";
 import account_circle from "../assets/account_circle.png";
@@ -10,17 +9,18 @@ import vpn_key from "../assets/vpn_key.png";
 import supervised_user_circle from "../assets/supervised_user_circle.png";
 import {apiTransport} from "../transport/api.transport";
 import {Context} from "../index";
-import logotip from "../assets/logotip.png";
+import logo_auth from "../assets/logo_auth.png"
 import show from "../assets/show.png"
 import help from "../assets/help.png"
 import validation from "../assets/validation.png"
+import no_show from "../assets/no_show.png"
 
 
 const DEFAULT_FORM_VALUES = {
   login: '',
   password: '',
   name: '',
-  group: ''
+  group: '',
 }
 
 const Auth = () => {
@@ -35,6 +35,7 @@ const Auth = () => {
   const [nameError, setNameError] = useState('ФИО не может быть пустым')
   const [formValid, setFormValid] = useState(false)
   const [state, setState] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
 
   const history = useHistory();
   const { user } = useContext(Context);
@@ -42,8 +43,16 @@ const Auth = () => {
   const handleRegistrationClick = async () => {
     await apiTransport.createNewAccount(formValues)
         .then((response) => console.log(response))
-        .catch((e) => console.log(e));
-  };
+        .catch(function (error) {
+          if (error.response) {
+            // The request was made and the server responded with a status code
+            // that falls out of the range of 2xx
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          }
+        });
+  }
 
   const handleLogin = async () => {
     await apiTransport.authorization({ username: formValues.login, password: formValues.password })
@@ -60,6 +69,12 @@ const Auth = () => {
 
           user.setIsAuth(true);
           history.push('/');
+        }).catch(function (error) {
+          if (error.response) {
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          }
         });
   }
 
@@ -125,7 +140,8 @@ const Auth = () => {
 
   const toggleBtn = (e) => {
     e.preventDefault();
-    setState(prevState => !prevState)
+    setState(prevState => !prevState);
+    setShowPassword(prevState => !prevState)
   }
 
   return (
@@ -133,7 +149,7 @@ const Auth = () => {
         <div>
           <div style={{position: "relative"}}>
             <img
-                src={logotip}
+                src={logo_auth}
             />
             {isLogin ? (
                 <div className="hint mt-3">
@@ -159,7 +175,7 @@ const Auth = () => {
               :
                 <div className="d-flex">
                   <div>Создайте аккаунт и вам откроются новые функции</div>
-                  <div className="first"><img src={help}></img></div>
+                  <div style={{marginLeft: "7px"}} className="first"><img src={help}></img></div>
                   <div className="fourth help-function">Аккаунт нужен для того, чтобы оставлять комментарии, отслеживать и сохранять игровой прогресс и многое другое</div>
                 </div>
 
@@ -174,13 +190,28 @@ const Auth = () => {
                     onChange={handleEmail}
                 />
                 <div className="img-input-mail-reg"><img src={mail_outline}></img></div>
-                <Form.Control
-                    placeholder="Введите пароль"
-                    type="password"
-                    value={formValues.password}
-                    onChange={handlePassword}
-                />
-                <div className="img-input-password-reg"><img src={vpn_key}></img></div>
+                <div style={{position: "relative"}}>
+                  <Form.Control
+                      placeholder="Введите пароль"
+                      type={state ? "text" : "password"}
+                      value={formValues.password}
+                      onChange={handlePassword}
+                  />
+
+                  <div className="img-input-password-reg"><img src={vpn_key}></img></div>
+                  <div style={{position: "absolute", left: '464px', top: '28px'}}>
+                    <button
+                        style={{background: "transparent", border: '0', paddingRight: "10px"}}
+                        onClick={toggleBtn}>
+                      {showPassword ?
+                          <img src={no_show}/>
+                          :
+                          <img src={show}/>
+                      }
+                    </button>
+                  </div>
+                </div>
+
                 <Button className="mt-4" variant="primary" onClick={handleLogin}>
                   Войти
                 </Button>
@@ -215,13 +246,6 @@ const Auth = () => {
                     onChange={handleEmail}
                 />
                 <div className="img-input-mail"><img src={mail_outline}></img></div>
-                <div className="img-show-password">
-                  <button
-                      style={{background: "transparent", border: '0', paddingRight: "10px"}}
-                      onClick={toggleBtn}>
-                    <img src={show}/>
-                  </button>
-                </div>
                 <Form.Control
                     name='password'
                     onBlur={e => blurHandler(e)}
@@ -246,13 +270,25 @@ const Auth = () => {
                       <div className="error-discryption">Возможно, Вы ввели неправильный домен или пропустили букву</div>
                       <div className="error"><img src={validation}></img></div>
                     </div>
-
                 }
-                {(passwordDirty && passwordError) &&
+
+                {(passwordDirty && passwordError) ?
                     <div className="validation-group">
                       <div className="error-text">{passwordError}</div>
                       <div className="error-discryption">Возможно, Вы ввели неправильный домен или пропустили букву</div>
                       <div className="error"><img src={validation}></img></div>
+                    </div>
+                    :
+                    <div className="img-show-password">
+                      <button
+                          style={{background: "transparent", border: '0', paddingRight: "10px"}}
+                          onClick={toggleBtn}>
+                        {showPassword ?
+                            <img src={no_show}/>
+                            :
+                            <img src={show}/>
+                        }
+                      </button>
                     </div>
                 }
                 <Button disabled = {!formValid} className="mt-4" variant={"primary"} onClick={handleRegistrationClick}>
