@@ -52,6 +52,7 @@ const Auth = () => {
             setLoginDirty(true)
           }
         });
+    history.push('/login');
   }
 
   const handleLogin = async () => {
@@ -174,8 +175,8 @@ const Auth = () => {
             {isLogin ?
                 <div>Мы рады, что Вы снова используете нашу платформу</div>
               :
-                <div style={{position: "relative"}} className="d-flex">
-                  <div>Создайте аккаунт и вам откроются новые функции</div>
+                <div className="d-flex">
+                  <div style={{position: 'relative'}}>Создайте аккаунт и вам откроются новые функции</div>
                   <div style={{marginLeft: "7px"}} className="first"><img src={help}></img>
                   </div>
                   <div className="fourth help-function">Аккаунт нужен для того, чтобы оставлять комментарии, отслеживать и сохранять игровой прогресс и многое другое</div>
