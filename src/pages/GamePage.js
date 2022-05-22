@@ -48,10 +48,11 @@ const Shop = (props) => {
                   onChange={handleChange}
               />
               <div>
-                  <select onChange={handleSelect} name="Категории" style={{marginTop: "2px"}} className="btn-secondary">
-                      <option style={{paddingLeft: '10px'}} value disabled selected>Категории</option>
+                  <select className="input-select-category" onChange={handleSelect} name="Категории" style={{marginTop: "2px"}}>
+                      <option className="select-disabled" style={{paddingLeft: '10px'}} value disabled selected>Категории</option>
                       {categories && categories.map((type) => (
                           <option
+                              className="select-category"
                               style={{ cursor: "pointer" }}
                               key={type.id}
                           >

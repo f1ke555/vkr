@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, {useContext, useEffect, useRef, useState} from "react";
 import { observer } from "mobx-react-lite";
 import { Context } from "../index";
 import { Row } from "react-bootstrap";
@@ -24,15 +24,21 @@ const DeviceList = (props) => {
     apiService._allGames$.subscribe((games) => setGames(games));
   }, [])
 
+    const scroll = useRef()
+    const handleWheel = (e) => {
+        e.preventDefault();
+        scroll.current.scrollLeft += e.deltaY;
+    }
+
   return (
     <div className="horizontal-scroll mt-3 d-flex justify-content-center">
-      <HorizontalScroll style={{ height: "200px", width: "980px" }} reverseScroll pageLock>
+      <div onWheel={handleWheel} ref={scroll} className="custom-slider" style={{ height: "200px", width: "980px" }}>
         {filteredGames && filteredGames.map((device) => (
           <Row className="" onClick={() => void apiTransport.setViewCountIntoGame(device.id, 1)}>
             <DeviceItem key={device.id} device={device} />
           </Row>
         ))}
-      </HorizontalScroll>
+      </div>
     </div>
   );
 };

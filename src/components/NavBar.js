@@ -71,6 +71,7 @@ const NavBar = observer(() => {
 
         {user.isAuth ? (
           <Nav className="ml-auto">
+
               <div className="d-flex">
                   <div>
                       <div className="navbar-name">{sessionStorage.getItem('username')}</div>
@@ -81,7 +82,15 @@ const NavBar = observer(() => {
                       <img style={{paddingLeft: '10px', paddingTop: "6px", cursor: "pointer"}} src={logout}/>
                   </div>
               </div>
-
+              {(sessionStorage.getItem('role') === 'admin') ?
+                  <button
+                      className="btn btn-primary"
+                      onClick={() => history.push(ADMIN_ROUTE)}>
+                      Админ панель
+                  </button>
+                  :
+                  <div></div>
+              }
           </Nav>
         ) : (
           <Nav className="ml-auto">

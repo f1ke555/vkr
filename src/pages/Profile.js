@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from "react";
 import {Card, Image, Container} from "react-bootstrap";
 import {apiTransport} from "../transport/api.transport";
-import {Autocomplete, Chip, TextField, Modal, Typography} from "@mui/material";
+import {Autocomplete, Chip, TextField, Modal, Typography, Paper} from "@mui/material";
 import {Box} from "@mui/system";
 import {Context} from "../index";
 import {useHistory} from "react-router-dom";
@@ -44,9 +44,11 @@ function Profile () {
   const [profileInfo, setProfileInfo] = useState(DEFAULT_PROFILE_INFO);
   const [open, setOpen] = React.useState(false);
 
+
   useEffect(() => {
     apiTransport.getProfileInfo()
         .then(resp => setProfileInfo(resp.data))
+
 
     apiTransport.getAllCompetencies()
         .then(resp => setCompetency(resp.data));
@@ -123,15 +125,34 @@ function Profile () {
               <div>
                 <h4>Выбор интересов</h4>
                 <Autocomplete
-                    className="form-control input-select"
                     multiple
                     onChange={(e, value) => handleAddCompetency(e, value)}
                     id="tags-filled"
+                    PaperComponent={({ children }) => (
+                        <Paper style={{ background: '#330B4F',
+                          boxShadow: '0px 1px 12px rgba(0, 0, 0, 0.3)',
+                          borderRadius: '6px',
+                          fontWeight: '500',
+                          fontSize: '14px',
+                          lineHeight: '85%',
+                          color: '#FFFFFF',
+                        }}
+
+                        >{children}</Paper>
+                    )}
                     options={competency.map((option) => option.name)}
                     renderTags={(value, getTagProps) =>
                         value.map((option, index) => (
                             <Chip
-                                className="custom-chip"
+                                style={{
+                                  background: '#735686',
+                                  boxShadow: '0px 2px 3px rgba(0, 0, 0, 0.25)',
+                                  borderRadius: '3px',
+                                  fontWeight: '700',
+                                  fontSize: '12px',
+                                  lineHeight: '110%',
+                                  color: '#FFFFFF',
+                                }}
                                 label={option}
                                 {...getTagProps({ index })}
                                 onDelete={handleDeleteCompetency}
@@ -140,10 +161,15 @@ function Profile () {
                     }
                     renderInput={(params) => (
                         <TextField
+                            style={{
+                              fontWeight: '700',
+                              fontSize: '14px',
+                              lineHeight: '85%',
+                              color: '#735686',
+                            }}
                             {...params}
                             variant="filled"
-                            label="freeSolo"
-                            placeholder="Favorites"
+                            placeholder="Поиск интересов"
                         />
                     )}
                 />

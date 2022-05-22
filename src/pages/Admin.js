@@ -17,12 +17,23 @@ const CATEGORY_STATE = {
     name: '',
 }
 
+const COMPETENCY_STATE = {
+    name: '',
+}
+
+const COMPETENCY_GAME_STATE = {
+    competency: '',
+    game: '',
+}
+
 const Admin = () => {
 
     const [state, setState] = useState(DEFAULT_STATE);
     const [category, setCategory] = useState(CATEGORY_STATE)
+    const [competency, setCompetency] = useState(COMPETENCY_STATE)
+    const [competencyFromGame, setCompetencyFromGame] = useState(COMPETENCY_GAME_STATE)
     const handleAddGameClick = async () => {
-        await apiTransport.addgame(category)
+        await apiTransport.addgame(state)
             .then((response) => console.log(response))
             .catch((e) => console.log(e));
     };
@@ -33,7 +44,25 @@ const Admin = () => {
             .catch((e) => console.log(e));
     };
 
+    const handleAddCompetencyClick = async () => {
+        await apiTransport.addcompetency(competency)
+            .then((response) => console.log(response))
+            .catch((e) => console.log(e));
+    };
 
+    const handleAddCompetencyFromGame = async () => {
+        await apiTransport.addCompetencyFromGame(competencyFromGame)
+            .then((response) => console.log(response))
+            .catch((e) => console.log(e));
+    };
+
+    const handleCompetencyFromGame = (e) => {
+        setCompetencyFromGame((prevValue) => ({ ...prevValue, competency: e.target.value }));
+    }
+
+    const handlGameCompetency = (e) => {
+        setCompetencyFromGame((prevValue) => ({ ...prevValue, game: e.target.value }));
+    }
 
     const handleName = (e) => {
         setState((prevValue) => ({ ...prevValue, name: e.target.value }));
@@ -53,6 +82,10 @@ const Admin = () => {
 
     const handleNameCategory = (e) => {
         setCategory((prevValue) => ({ ...prevValue, name: e.target.value }));
+    }
+
+    const handleCompetency = (e) => {
+        setCompetency((prevValue) => ({ ...prevValue, name: e.target.value }));
     }
 
     return (
@@ -80,7 +113,7 @@ const Admin = () => {
                         onChange={handleViews}
                     />
                     <Button className="mt-4" variant="primary"
-                    onClick={handleAddGameClick()}
+                    onClick={handleAddGameClick}
                     >
                         Добавить
                     </Button>
@@ -94,6 +127,37 @@ const Admin = () => {
                 />
                 <Button className="mt-4" variant="primary"
                         onClick={handleAddCategoryClick}
+                >
+                    Добавить
+                </Button>
+            </Form>
+            <h2 className="pt-5">Добавить компетенцию</h2>
+            <Form>
+                <Form.Control
+                    placeholder="Введите компетенцию"
+                    value={competency.name}
+                    onChange={handleCompetency}
+                />
+                <Button className="mt-4" variant="primary"
+                        onClick={handleAddCompetencyClick}
+                >
+                    Добавить
+                </Button>
+            </Form>
+            <h2 className="pt-3">Добавить игру</h2>
+            <Form>
+                <Form.Control
+                    placeholder="Введите компетенцию"
+                    value={competencyFromGame.competency}
+                    onChange={handleCompetencyFromGame}
+                />
+                <Form.Control
+                    placeholder="Введите название игры"
+                    value={competencyFromGame.game}
+                    onChange={handlGameCompetency}
+                />
+                <Button className="mt-4" variant="primary"
+                        onClick={handleAddCompetencyFromGame}
                 >
                     Добавить
                 </Button>

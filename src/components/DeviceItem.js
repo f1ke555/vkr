@@ -17,7 +17,14 @@ const DeviceItem = ({ device }) => {
                   height="147px"
                   width="228px"
               />
-              <Chip className="main-category-card" label={device.name}/>
+              <div style={{position: 'absolute', top: '110px', left: '10px'}}>
+                  { device.competencies && device.competencies.map((item) => {
+                      return (
+                          <Chip className="custom-chip color-chip" label={item.name} />
+                      )
+                  })}
+              </div>
+
               <div className="main-category-views">
                   {device.views + 1}
                   <div>

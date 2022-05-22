@@ -71,6 +71,32 @@ class ApiTransport {
         )
     }
 
+    addcompetency(requestData) {
+        return axios.post(
+            'https://37.79.216.230:44333/api/competencies/addcompetency',
+            JSON.stringify(requestData),
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+                }
+            }
+        )
+    }
+
+    addCompetencyFromGame(requestData) {
+        return axios.post(
+            'https://37.79.216.230:44333/api/games/addcompetency',
+            JSON.stringify(requestData),
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+                }
+            }
+        )
+    }
+
     authorization(requestData) {
         return axios.post(
             'https://37.79.216.230:44333/api/account/login',
@@ -99,6 +125,17 @@ class ApiTransport {
     authValidation(token) {
         return axios.get(
             'https://37.79.216.230:44333/api/account/authcheck',
+            {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            }
+        )
+    }
+
+    getCompetencies(token) {
+        return axios.get(
+            'https://37.79.216.230:44333/api/account/getcompetencies',
             {
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -156,6 +193,7 @@ class ApiTransport {
             }
         )
     }
+
 
     getAllCategories() {
         return axios.get(

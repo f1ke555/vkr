@@ -14,7 +14,13 @@ const AllGameItem = ({ device }) => {
         <div className="d-flex">
           <div style={{ position: "relative", display: "inline-block"}}>
             <img src={`/gameCards/${device.name}.png`} height="150px" width="270px" style={{marginLeft: '12px', marginTop: '10px'}}/>
-            <Chip className="category-card" label={device.name}/>
+            <div style={{position: 'absolute', top: "120px", left: '20px'}}>
+              { device.competencies && device.competencies.map((item) => {
+                return (
+                    <Chip className="custom-chip color-chip" label={item.name} />
+                )
+              })}
+            </div>
             <div className="card-views">
               {device.views}
               <div>
