@@ -21,6 +21,7 @@ const DEFAULT_FORM_VALUES = {
   password: '',
   name: '',
   group: '',
+  admin: false
 }
 
 const Auth = () => {
@@ -58,6 +59,8 @@ const Auth = () => {
         .then((response) => {
           sessionStorage.setItem('token', response.data.access_token);
           sessionStorage.setItem('username', response.data.name);
+          sessionStorage.setItem('group', response.data.group);
+          sessionStorage.setItem('role', response.data.role);
           const checkSession = setInterval(() => {
             const getKey = sessionStorage.getItem('token');
             console.log(getKey);
@@ -66,7 +69,7 @@ const Auth = () => {
             apiTransport.authValidation(getKey);
           }, 10000);
 
-          user.setIsAuth(true);
+          user.setIsAdmin(response.data.role === 'admin');
           history.push('/');
         }).catch(function (error) {
           if (error.response) {
@@ -183,6 +186,7 @@ const Auth = () => {
 
               <Form className="d-flex flex-column">
                 <Form.Control
+                    autocomplete="disabled"
                     placeholder="Введите почту"
                     value={formValues.login}
                     onChange={handleEmail}
@@ -190,6 +194,7 @@ const Auth = () => {
                 <div className="img-input-mail-reg"><img src={mail_outline}></img></div>
                 <div style={{position: "relative"}}>
                   <Form.Control
+                      autocomplete="disabled"
                       placeholder="Введите пароль"
                       type={state ? "text" : "password"}
                       value={formValues.password}
@@ -229,6 +234,7 @@ const Auth = () => {
                   style={{position: 'relative'}}
                   className="d-flex flex-column ">
                 <Form.Control
+                    autocomplete="disabled"
                     placeholder="Введите свою фамилию и имя"
                     onChange={handleName}
                     onBlur={e => blurHandler(e)}
@@ -239,6 +245,7 @@ const Auth = () => {
                 <div className="img-input"><img src={account_circle}></img></div>
 
                 <Form.Control
+                    autocomplete="disabled"
                     placeholder="Введите свою академическую группу"
                     onChange={handleGroup}
                     value={formValues.group}
@@ -246,6 +253,7 @@ const Auth = () => {
                 <div className="img-input-group"><img src={supervised_user_circle}></img></div>
 
                 <Form.Control
+                    autocomplete="disabled"
                     onBlur={e => blurHandler(e)}
                     name='email'
                     type="text"
@@ -255,6 +263,7 @@ const Auth = () => {
                 />
                 <div className="img-input-mail"><img src={mail_outline}></img></div>
                 <Form.Control
+                    autocomplete="disabled"
                     name='password'
                     onBlur={e => blurHandler(e)}
                     placeholder="Введите пароль"

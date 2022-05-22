@@ -1,11 +1,9 @@
 import React, {useCallback, useEffect, useRef, useState} from "react";
 import "../style/style.css";
-import HorizontalScroll from "react-scroll-horizontal";
 import CategoryItem from "./CategoryItem"
 import {apiTransport} from "../transport/api.transport";
 import {ALLGAME_ROUTE} from "../utils/consts";
 import {useHistory} from "react-router-dom";
-
 
 const CategoryList = (props) => {
   const [categories, setCategories] = useState([]);
@@ -29,7 +27,8 @@ const CategoryList = (props) => {
 
     const scroll = useRef(null)
     const handleWheel = (e) => {
-        e.preventDefault();
+        e.nativeEvent.stopImmediatePropagation();
+        e.stopPropagation()
         scroll.current.scrollLeft += e.deltaY;
     }
   return (

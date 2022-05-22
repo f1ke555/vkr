@@ -23,7 +23,7 @@ function App() {
         <AppRouter />
       </BrowserRouter>
         <div style={{position: "relative",}}>
-            <div id="footer" className="copyright">Кафедра высшей математики УрФУ</div>
+            {/*<div id="footer" className="copyright">Кафедра высшей математики УрФУ</div>*/}
         </div>
     </div>
   );

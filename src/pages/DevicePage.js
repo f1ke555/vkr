@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext, useEffect, useRef, useState} from "react";
 import { apiService } from "../services/api.service";
 import { useLocation } from "react-router-dom";
 import { Unity } from "react-unity-webgl";
@@ -15,6 +15,7 @@ const DEFAULT_STATE = {
     id: 0,
     savedData: null,
     views: 0,
+    competencies: null,
   },
   commentText: '',
   comments: [],
@@ -67,11 +68,20 @@ function DevicePage() {
     setState((prev) => ({...prev, commentText: e.target.value }))
   }
 
+  // const unityRef = useRef(null);
+  // useEffect(() => {
+  //   if (unityRef.current) {
+  //     console.log('fsaf')
+  //     unityRef.current.htmlCanvasElementReference.tabIndex = 1;
+  //   }
+  // }, [unityRef]);
+
   return (
     <div className="container">
       <h1 className="mt-4 color-text">{state.mainData.name}</h1>
       { state.mainData.name &&
         <Unity
+            tabIndex={9999}
             width="500px"
             height="350px"
             onProgress={onProgress}
@@ -81,7 +91,7 @@ function DevicePage() {
       }
       <div className="d-flex justify-content-between">
         <div><span className="color-text">Разработчик/</span>{`${state.mainData.name}`}</div>
-        <div className><span className="color-text">Просмотров:</span>{`${state.mainData.views}`}</div>
+        <div className><span className="color-text">Просмотров:</span>{`${state.mainData.views + 2}`}</div>
       </div>
       <h2 className="color-text pt-4">Описание</h2>
       <h4
@@ -90,7 +100,11 @@ function DevicePage() {
       >
         {state.mainData.description}
       </h4>
-      <Chip className="custom-chip mt-4" label={state.mainData.category.name} />
+      { state.mainData.competencies && state.mainData.competencies.map((item) => {
+        return (
+            <Chip className="custom-chip mt-4" label={item.name} />
+        )
+      })}
       <div className="d-flex">
         <div>
           <label className="pt-4">
@@ -100,7 +114,6 @@ function DevicePage() {
                   <h2 className="color-text">Комментарий:</h2>
                   <input
                       id="test"
-                      contentEditable="true"
                       className="form-control input-find mt-3 input-com"
                       name="comment"
                       value={state.commentText}

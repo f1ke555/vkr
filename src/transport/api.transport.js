@@ -83,6 +83,19 @@ class ApiTransport {
         )
     }
 
+    changeProfile(requestData) {
+        return axios.post(
+            'http://37.79.216.230:59614/api/account/changeprofile',
+            JSON.stringify(requestData),
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+                }
+            }
+        )
+    }
+
     authValidation(token) {
         return axios.get(
             'http://37.79.216.230:59614/api/account/authcheck',
@@ -106,9 +119,53 @@ class ApiTransport {
         )
     }
 
+    addСompetency(name) {
+        return axios.post(
+            'http://37.79.216.230:59614/api/account/addcompetency',
+            JSON.stringify({ name: name, newCompetency: name }),
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+                }
+            }
+        )
+    }
+
+    removeСompetency(name) {
+        return axios.post(
+            'http://37.79.216.230:59614/api/account/removecompetency',
+            JSON.stringify({ name }),
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+                }
+            }
+        )
+    }
+
+    setViewCountIntoGame(gameId, views) {
+        return axios.post(
+            'http://37.79.216.230:59614/api/games/addviewpointstogame',
+            JSON.stringify({ gameId, views }),
+            {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+        )
+    }
+
     getAllCategories() {
         return axios.get(
             'http://37.79.216.230:59614/api/categories/getallcategories'
+        )
+    }
+
+    getAllCompetencies() {
+        return axios.get(
+            'http://37.79.216.230:59614/api/competencies/getallcompetencies'
         )
     }
 

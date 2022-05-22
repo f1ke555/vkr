@@ -2,10 +2,10 @@ import Admin from "./pages/Admin";
 import {
   ADMIN_ROUTE,
   PROFILE_ROUTE,
-  DEVICE_ROUTE,
+  GAME_ROUTE,
   LOGIN_ROUTE,
   REGISTRATION_ROUTE,
-  SHOP_ROUTE,
+  MANE_ROUTE,
   ALLGAME_ROUTE,
   CATEGORY_ROUTE,
 } from "./utils/consts";
@@ -26,7 +26,7 @@ export const authRoutes = [
 
 export const publicRoutes = [
   {
-    path: SHOP_ROUTE,
+    path: MANE_ROUTE,
     Component: Shop,
   },
   {
@@ -38,7 +38,7 @@ export const publicRoutes = [
     Component: Auth,
   },
   {
-    path: DEVICE_ROUTE + "/:id",
+    path: GAME_ROUTE + "/:id",
     Component: DevicePage,
   },
   {

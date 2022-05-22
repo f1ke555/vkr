@@ -15,24 +15,42 @@ const DEFAULT_PROFILE_INFO = {
   "password":"",
   "name":"",
   "group":"",
-  "savedData": []
+  "savedData": [],
+  "univercity": '',
+  "specialization": '',
+  'phone': '',
+  'competencies': ''
 }
 
-const competency = [
-  { title: "Анализ" },
-  { title: "Дизайн" },
-  { title: "Аналитика" },
-  { title: "Мышление" },
-
-];
-
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 970,
+  height: 500,
+  backgroundColor: '#4B185F',
+  border: '8px',
+  p: 4,
+  boxShadow: '0px 4px 11px 1px rgba(0, 0, 0, 0.13)',
+};
 
 function Profile () {
-
   const { user } = useContext(Context);
-  const history = useHistory()
+  const history = useHistory();
 
+  const [competency, setCompetency] = useState([]);
   const [receivers, setReceivers] = useState([]);
+  const [profileInfo, setProfileInfo] = useState(DEFAULT_PROFILE_INFO);
+  const [open, setOpen] = React.useState(false);
+
+  useEffect(() => {
+    apiTransport.getProfileInfo()
+        .then(resp => setProfileInfo(resp.data))
+
+    apiTransport.getAllCompetencies()
+        .then(resp => setCompetency(resp.data));
+  }, []);
 
   const logOut = () => {
     user.setUser({});
@@ -41,28 +59,25 @@ function Profile () {
     history.push('/');
   };
 
-  const [profileInfo, setProfileInfo] = useState(DEFAULT_PROFILE_INFO)
-  useEffect(() => {
-    apiTransport.getProfileInfo()
-        .then(resp => setProfileInfo(resp.data))
-  }, []);
-
-  const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 970,
-    height: 500,
-    backgroundColor: '#4B185F',
-    border: '8px',
-    p: 4,
-   boxShadow: '0px 4px 11px 1px rgba(0, 0, 0, 0.13)',
-  };
-
-  const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const handleChangeFromValues = (fieldName, e) => {
+    console.log(fieldName, e);
+    setProfileInfo(prevState => ({...prevState, [fieldName]: e.target.value}));
+  }
+
+  const handleDeleteCompetency = (name) => {
+    apiTransport.removeСompetency(name)
+  }
+
+  const handleAddCompetency = (name, value) => {
+    apiTransport.addСompetency(value[name.target.value])
+  }
+
+  const handleSubmit = () => {
+    apiTransport.changeProfile(profileInfo)
+  }
 
   return (
     <Container>
@@ -93,21 +108,34 @@ function Profile () {
                   <option className="form-control" value="value3">5</option>
                 </select>
                 <div style={{position: "absolute", left: "12px", top: "200px"}}><img src={mail_outline}></img></div>
-                <input className="input-modal form-control" placeholder="Введите название института"/>
+                <input
+                    className="input-modal form-control"
+                    placeholder="Введите название института"
+                    onChange={handleChangeFromValues.bind(null, 'univercity')}
+                />
                 <div style={{position: "absolute", left: "12px", top: "255px"}}><img src={mail_outline}></img></div>
-                <input className="input-modal form-control" placeholder="Введите название направления"/>
+                <input
+                    className="input-modal form-control"
+                    placeholder="Введите название направления"
+                    onChange={handleChangeFromValues.bind(null, 'specialization')}
+                />
               </div>
               <div>
                 <h4>Выбор интересов</h4>
                 <Autocomplete
                     className="form-control input-select"
                     multiple
-                    onChange={(e, value) => setReceivers((state) => value)}
+                    onChange={(e, value) => handleAddCompetency(e, value)}
                     id="tags-filled"
-                    options={competency.map((option) => option.title)}
+                    options={competency.map((option) => option.name)}
                     renderTags={(value, getTagProps) =>
                         value.map((option, index) => (
-                            <Chip className="custom-chip" label={option} {...getTagProps({ index })} />
+                            <Chip
+                                className="custom-chip"
+                                label={option}
+                                {...getTagProps({ index })}
+                                onDelete={handleDeleteCompetency}
+                            />
                         ))
                     }
                     renderInput={(params) => (
@@ -126,14 +154,18 @@ function Profile () {
                 </div>
 
                 <div style={{position: "absolute", left: "572px", top: "352px"}}><img src={mail_outline}></img></div>
-                <input className="input-modal form-control"  placeholder="Введите номер телефона"/>
+                <input
+                    className="input-modal form-control"
+                    placeholder="Введите номер телефона"
+                    onChange={handleChangeFromValues.bind(null, 'phone')}
+                />
               </div>
               </div>
 
 
           </Typography>
           <div className="d-flex justify-content-center pt-4">
-            <button className="btn btn-primary mt-4">
+            <button className="btn btn-primary mt-4" onClick={handleSubmit}>
               Сохранить
             </button>
           </div>
@@ -156,17 +188,15 @@ function Profile () {
               <div className="text-table">
                 <div>Телефон</div>
                 <div>Почта</div>
-                <div>Курс</div>
                 <div>Институт</div>
                 <div>Направление</div>
                 <div>Интересы:</div>
               </div>
               <div>
-                <div>8 (800) 555-35-35</div>
+                <div>{profileInfo.phone}</div>
                 <div>{profileInfo.login}</div>
-                <div>2</div>
-                <div>ИРИТ-РТФ</div>
-                <div>Программная инженерия</div>
+                <div>{profileInfo.univercity}</div>
+                <div>{profileInfo.specialization}</div>
               </div>
             </div>
           </Card>

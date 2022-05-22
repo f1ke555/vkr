@@ -26,9 +26,9 @@ const DeviceList = (props) => {
 
   return (
     <div className="horizontal-scroll mt-3 d-flex justify-content-center">
-      <HorizontalScroll style={{ height: "200px", width: "980px" }}>
+      <HorizontalScroll style={{ height: "200px", width: "980px" }} reverseScroll pageLock>
         {filteredGames && filteredGames.map((device) => (
-          <Row className="">
+          <Row className="" onClick={() => void apiTransport.setViewCountIntoGame(device.id, 1)}>
             <DeviceItem key={device.id} device={device} />
           </Row>
         ))}

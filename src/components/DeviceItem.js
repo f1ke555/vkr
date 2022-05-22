@@ -1,16 +1,15 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Card, Col } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
-import { DEVICE_ROUTE } from "../utils/consts";
+import { GAME_ROUTE } from "../utils/consts";
 import "../style/style.css";
 import {Chip} from "@mui/material";
 import views from "../assets/views.png"
 
 const DeviceItem = ({ device }) => {
-  console.log(device);
   const history = useHistory();
   return (
-    <Col md={4} onClick={() => history.push(DEVICE_ROUTE + "/" + device.id, { gameInfo: device })}>
+    <Col md={4} onClick={() => history.push(GAME_ROUTE + "/" + device.id, { gameInfo: device })}>
       <Card style={{ width: "228px", height: "147px", cursor: "pointer", marginRight: "19px" }}>
           <div className="first" style={{position: 'relative'}}>
               <img
@@ -20,7 +19,7 @@ const DeviceItem = ({ device }) => {
               />
               <Chip className="main-category-card" label={device.name}/>
               <div className="main-category-views">
-                  {device.views}
+                  {device.views + 1}
                   <div>
                       <img className="icon-views" src={views}/>
                   </div>
