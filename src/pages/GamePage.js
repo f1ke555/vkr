@@ -36,7 +36,7 @@ const Shop = (props) => {
               <h1>{history.location.state?.hasCategories ? <button
                   onClick={() => history.push(ALLGAME_ROUTE)}
                   className="btn-category">
-                  Показать католог игр
+                  Показать каталог игр
               </button> : ' '}</h1>
           </div>
           <h4 style={{fontWeight: "500"}}>Используйте площадку по максимуму и, главное, никогда не переставайте обучаться</h4>
