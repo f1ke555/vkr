@@ -176,7 +176,7 @@ const Auth = () => {
               :
                 <div className="d-flex">
                   <div>Создайте аккаунт и вам откроются новые функции</div>
-                  <div style={{marginLeft: "7px"}} className="first"><img src={help}></img></div>
+                  <div style={{position: "relative", marginLeft: "7px"}} className="first"><img src={help}></img></div>
                   <div className="fourth help-function">Аккаунт нужен для того, чтобы оставлять комментарии, отслеживать и сохранять игровой прогресс и многое другое</div>
                 </div>
 
