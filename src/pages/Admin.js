@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import {Button, Container, Form} from "react-bootstrap";
 import {apiTransport} from "../transport/api.transport";
 import mail_outline from "../assets/mail_outline.png";
 import vpn_key from "../assets/vpn_key.png";
+import BasicTable from "../components/BasicTable"
 
 const DEFAULT_STATE = {
     mainData: {
@@ -32,11 +33,23 @@ const Admin = () => {
     const [category, setCategory] = useState(CATEGORY_STATE)
     const [competency, setCompetency] = useState(COMPETENCY_STATE)
     const [competencyFromGame, setCompetencyFromGame] = useState(COMPETENCY_GAME_STATE)
+    const [metrics, setMetrics] = useState([])
     const handleAddGameClick = async () => {
         await apiTransport.addgame(state)
             .then((response) => console.log(response))
             .catch((e) => console.log(e));
     };
+
+    useEffect(() => {
+        apiTransport.loadMetrics('combinatorics')
+            .then((response) => setMetrics(response.data))
+    }, [])
+
+    const getMappedMetrics = () => {
+        metrics.map((item) => {
+            return item.game
+        })
+    }
 
     const handleAddCategoryClick = async () => {
         await apiTransport.addcategory(category)
@@ -162,6 +175,7 @@ const Admin = () => {
                     Добавить
                 </Button>
             </Form>
+            <BasicTable metrics={metrics}/>
         </Container>
     );
 };

@@ -29,7 +29,7 @@ const AllGameItem = ({ device }) => {
             </div>
           </div>
           <div>
-            <div className="color-text pt-2">{device.name}</div>
+            <div style={{paddingLeft: '10px'}} className="color-text pt-2">{device.name}</div>
             <h5 className="align-self-center description">{device.description}</h5>
           </div>
         </div>

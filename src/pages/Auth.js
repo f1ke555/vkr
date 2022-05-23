@@ -67,7 +67,11 @@ const Auth = () => {
             console.log(getKey);
             if (!getKey) clearInterval(checkSession);
 
-            apiTransport.authValidation(getKey);
+            apiTransport.authValidation(getKey)
+                .catch(() => {
+              sessionStorage.clear()
+                  history.push('/login');
+            })
           }, 10000);
 
           user.setIsAdmin(response.data.role === 'admin');

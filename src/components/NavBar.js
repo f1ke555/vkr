@@ -31,8 +31,8 @@ const NavBar = observer(() => {
   const logOut = () => {
     user.setUser({});
     user.setIsAuth(false);
-    sessionStorage.setItem('token', null);
-    history.push('/');
+    sessionStorage.clear()
+    history.push('/login');
   };
 
   return (
@@ -69,7 +69,7 @@ const NavBar = observer(() => {
     </div>
         </div>
 
-        {user.isAuth ? (
+        {sessionStorage.getItem('token') ? (
           <Nav className="ml-auto">
 
               <div className="d-flex">

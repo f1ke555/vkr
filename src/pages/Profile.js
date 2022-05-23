@@ -28,7 +28,7 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 970,
-  height: 500,
+  height: 470,
   backgroundColor: '#4B185F',
   border: '8px',
   p: 4,
@@ -40,7 +40,7 @@ function Profile () {
   const history = useHistory();
 
   const [competency, setCompetency] = useState([]);
-  const [receivers, setReceivers] = useState([]);
+  const [competenciesProfile, setCompetenciesProfile] = useState([]);
   const [profileInfo, setProfileInfo] = useState(DEFAULT_PROFILE_INFO);
   const [open, setOpen] = React.useState(false);
 
@@ -49,6 +49,8 @@ function Profile () {
     apiTransport.getProfileInfo()
         .then(resp => setProfileInfo(resp.data))
 
+      apiTransport.getProfileCompetencies()
+          .then(resp => setCompetenciesProfile(resp.data))
 
     apiTransport.getAllCompetencies()
         .then(resp => setCompetency(resp.data));
@@ -71,14 +73,24 @@ function Profile () {
 
   const handleDeleteCompetency = (name) => {
     apiTransport.removeСompetency(name)
+        .then(() => {
+            apiTransport.getProfileCompetencies()
+                .then(resp => setCompetenciesProfile(resp.data))
+        })
   }
 
   const handleAddCompetency = (name, value) => {
-    apiTransport.addСompetency(value[name.target.value])
+      value.forEach((item) => {
+          apiTransport.addСompetency(item)
+      })
   }
 
   const handleSubmit = () => {
     apiTransport.changeProfile(profileInfo)
+      apiTransport.getProfileCompetencies()
+          .then(resp => setCompetenciesProfile(resp.data))
+      setOpen(false);
+
   }
 
   return (
@@ -102,20 +114,13 @@ function Profile () {
                 <div style={{position: "absolute", left: "12px", top: "90px"}}><img src={vpn_key}></img></div>
                 <input className="input-modal form-control" disabled="true" placeholder={profileInfo.group}/>
                 <div style={{position: "absolute", left: "12px", top: "145px"}}><img src={mail_outline}></img></div>
-                <select style={{lineHeight: '24px'}} className="input-modal form-control" placeholder="Введите номер курса">
-                  <option className="form-control" value="value1">1</option>
-                  <option className="form-control" value="value2">2</option>
-                  <option className="form-control" value="value3">3</option>
-                  <option className="form-control" value="value2">4</option>
-                  <option className="form-control" value="value3">5</option>
-                </select>
                 <div style={{position: "absolute", left: "12px", top: "200px"}}><img src={mail_outline}></img></div>
                 <input
                     className="input-modal form-control"
                     placeholder="Введите название института"
                     onChange={handleChangeFromValues.bind(null, 'univercity')}
                 />
-                <div style={{position: "absolute", left: "12px", top: "255px"}}><img src={mail_outline}></img></div>
+
                 <input
                     className="input-modal form-control"
                     placeholder="Введите название направления"
@@ -173,13 +178,13 @@ function Profile () {
                         />
                     )}
                 />
-                <div style={{paddingTop: "58px"}}>
+                <div style={{paddingTop: "30px"}}>
                   <h4>Контактная информация</h4>
-                  <div style={{position: "absolute", left: "572px", top: "298px"}}><img src={vpn_key}></img></div>
+                  <div style={{position: "absolute", left: "572px", top: "239px"}}><img src={vpn_key}></img></div>
                   <input className="input-modal form-control" disabled placeholder={profileInfo.login}/>
                 </div>
 
-                <div style={{position: "absolute", left: "572px", top: "352px"}}><img src={mail_outline}></img></div>
+                <div style={{position: "absolute", left: "572px", top: "295px"}}><img src={mail_outline}></img></div>
                 <input
                     className="input-modal form-control"
                     placeholder="Введите номер телефона"
@@ -203,7 +208,7 @@ function Profile () {
           <Card style={{ height: "471px" }}>
             <div className="d-flex">
              <img style={{position: "relative", right: "13px"}} src={photo}/>
-              <div className="ms-3">
+              <div className="ms-3 pt-2">
                 <div>{profileInfo.name}</div>
                 <div className="name-group">{profileInfo.group}</div>
                 <button
@@ -217,6 +222,20 @@ function Profile () {
                 <div>Институт</div>
                 <div>Направление</div>
                 <div>Интересы:</div>
+                  <div>
+                      {competenciesProfile && competenciesProfile.map((item) => {
+                          return <Chip style={{
+                              background: '#735686',
+                              boxShadow: '0px 2px 3px rgba(0, 0, 0, 0.25)',
+                              borderRadius: '3px',
+                              fontWeight: '700',
+                              fontSize: '12px',
+                              lineHeight: '110%',
+                              color: '#FFFFFF',
+                              marginRight: '10px'
+                          }} onDelete={handleDeleteCompetency.bind(null, item.name)} label={item.name}/>
+                      })}
+                  </div>
               </div>
               <div>
                 <div>{profileInfo.phone}</div>
@@ -225,20 +244,21 @@ function Profile () {
                 <div>{profileInfo.specialization}</div>
               </div>
             </div>
+
           </Card>
         </div>
-        <div className="col-6">
-          <div className="row">
-            <Card style={{ height: "320px" }}>
-              <h2>Компетенции</h2>
-            </Card>
-          </div>
-          <div className="row mt-3">
-            <Card style={{ height: "134px" }}>
-              <h2>Прогресс</h2>
-            </Card>
-          </div>
-        </div>
+        {/*<div className="col-6">*/}
+        {/*  <div className="row">*/}
+        {/*    <Card style={{ height: "320px" }}>*/}
+        {/*      <h2>Компетенции</h2>*/}
+        {/*    </Card>*/}
+        {/*  </div>*/}
+        {/*  <div className="row mt-3">*/}
+        {/*    <Card style={{ height: "134px" }}>*/}
+        {/*      <h2>Прогресс</h2>*/}
+        {/*    </Card>*/}
+        {/*  </div>*/}
+        {/*</div>*/}
       </div>
       <div className="d-flex justify-content-center pt-5">
         <button

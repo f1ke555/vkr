@@ -109,7 +109,7 @@ function DevicePage() {
         <div>
           <label className="pt-4">
 
-            {user.isAuth ?
+            {sessionStorage.getItem('token') ?
                 <div>
                   <h2 className="color-text">Комментарий:</h2>
                   <input

@@ -133,6 +133,17 @@ class ApiTransport {
         )
     }
 
+    getProfileCompetencies() {
+        return axios.get(
+            'https://37.79.216.230:44333/api/account/getcompetencies',
+            {
+                headers: {
+                    'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+                }
+            }
+        )
+    }
+
     getCompetencies(token) {
         return axios.get(
             'https://37.79.216.230:44333/api/account/getcompetencies',
@@ -169,10 +180,23 @@ class ApiTransport {
         )
     }
 
+    loadMetrics(name) {
+        return axios.post(
+            'https://37.79.216.230:44333/api/metrics/loadmetrics',
+            JSON.stringify({ name }),
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+                }
+            }
+        )
+    }
+
     removeСompetency(name) {
         return axios.post(
             'https://37.79.216.230:44333/api/account/removecompetency',
-            JSON.stringify({ name }),
+            JSON.stringify({ name: name }),
             {
                 headers: {
                     'Content-Type': 'application/json',
