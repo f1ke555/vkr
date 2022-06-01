@@ -113,6 +113,7 @@ div.first:hover ~ div.fourth {
 }
 
 .knopka {
+  cursor: pointer;
   position: absolute;
   width: 40px;
   height: 70px;
@@ -124,6 +125,7 @@ div.first:hover ~ div.fourth {
 }
 
 .knopkaright {
+  cursor: pointer;
   position: absolute;
   width: 40px;
   height: 70px;
@@ -136,6 +138,7 @@ div.first:hover ~ div.fourth {
 }
 
 .knopkagame {
+  cursor: pointer;
   position: absolute;
   width: 40px;
   height: 70px;
@@ -147,6 +150,7 @@ div.first:hover ~ div.fourth {
 }
 
 .knopkagameright {
+  cursor: pointer;
   position: absolute;
   width: 40px;
   height: 70px;
@@ -600,8 +604,14 @@ a:hover {
 .btn-secondary:hover,
 .form-control:focus {
   background-color: rgba(255, 255, 255, 0.2);
-  color: #fe6e4e;
+  color: #fff;
   border-color: #fe6e4e;
+}
+
+.arrow-scroll {
+  display: block;
+  margin: 0 auto;
+  padding-top: 25px;
 }
 
 .form-control {

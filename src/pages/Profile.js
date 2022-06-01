@@ -117,13 +117,13 @@ function Profile () {
                 <div style={{position: "absolute", left: "12px", top: "200px"}}><img src={mail_outline}></img></div>
                 <input
                     className="input-modal form-control"
-                    placeholder="Введите название института"
+                    placeholder="Название института"
                     onChange={handleChangeFromValues.bind(null, 'univercity')}
                 />
 
                 <input
                     className="input-modal form-control"
-                    placeholder="Введите название направления"
+                    placeholder="Название направления"
                     onChange={handleChangeFromValues.bind(null, 'specialization')}
                 />
               </div>
@@ -187,7 +187,7 @@ function Profile () {
                 <div style={{position: "absolute", left: "572px", top: "295px"}}><img src={mail_outline}></img></div>
                 <input
                     className="input-modal form-control"
-                    placeholder="Введите номер телефона"
+                    placeholder="Номер телефона"
                     onChange={handleChangeFromValues.bind(null, 'phone')}
                 />
               </div>

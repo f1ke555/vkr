@@ -193,7 +193,7 @@ const Auth = () => {
               <Form className="d-flex flex-column">
                 <Form.Control
                     autocomplete="disabled"
-                    placeholder="Введите почту"
+                    placeholder="Почта"
                     value={formValues.login}
                     onChange={handleEmail}
                 />
@@ -201,7 +201,7 @@ const Auth = () => {
                 <div style={{position: "relative"}}>
                   <Form.Control
                       autocomplete="disabled"
-                      placeholder="Введите пароль"
+                      placeholder="Пароль"
                       type={state ? "text" : "password"}
                       value={formValues.password}
                       onChange={handlePassword}
@@ -241,7 +241,7 @@ const Auth = () => {
                   className="d-flex flex-column ">
                 <Form.Control
                     autocomplete="disabled"
-                    placeholder="Введите свою фамилию и имя"
+                    placeholder="Фамилия и имя"
                     onChange={handleName}
                     onBlur={e => blurHandler(e)}
                     name="name"
@@ -252,7 +252,7 @@ const Auth = () => {
 
                 <Form.Control
                     autocomplete="disabled"
-                    placeholder="Введите свою академическую группу"
+                    placeholder="Академическая группа"
                     onChange={handleGroup}
                     value={formValues.group}
                 />
@@ -263,7 +263,7 @@ const Auth = () => {
                     onBlur={e => blurHandler(e)}
                     name='email'
                     type="text"
-                    placeholder="Введите почту"
+                    placeholder="Почта"
                     value={formValues.email}
                     onChange={handleEmail}
                 />
@@ -272,7 +272,7 @@ const Auth = () => {
                     autocomplete="disabled"
                     name='password'
                     onBlur={e => blurHandler(e)}
-                    placeholder="Введите пароль"
+                    placeholder="Пароль"
                     type={state ? "text" : "password"}
                     value={formValues.password}
                     onChange={handlePassword}

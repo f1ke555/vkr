@@ -33,8 +33,8 @@ const DeviceItem = ({ device }) => {
               </div>
           </div>
           <div className="fourth back-card-game">
-              <h5 style={{paddingTop: '10px', paddingLeft: "10px"}}>{device.name}</h5>
-              <h6 style={{paddingLeft: "10px"}}>{device.description}</h6>
+              <div style={{paddingTop: '3px', paddingLeft: "10px", fontSize: '16px'}}>{device.name}</div>
+              <div style={{paddingLeft: "10px", fontSize: '14px', fontWeight: '400'}}>{device.description}</div>
           </div>
 
       </Card>
