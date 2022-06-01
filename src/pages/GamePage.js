@@ -5,8 +5,9 @@ import {useHistory} from "react-router-dom";
 import {ALLGAME_ROUTE} from "../utils/consts";
 import {apiTransport} from "../transport/api.transport";
 import input_find from "../assets/input_find.png";
+import line from "../assets/filter.svg";
 
-const Shop = (props) => {
+const Shop = () => {
   const history = useHistory();
     const [searchText, setSearchText] = useState('');
     const handleChange = (event) => {
@@ -14,7 +15,6 @@ const Shop = (props) => {
     }
     const [categories, setCategories] = useState([]);
     const [gameNamesOnCategory, setGameNamesOnCategory] = useState(null)
-
 
     useEffect(() => {
         apiTransport.getAllCategories()
@@ -28,6 +28,18 @@ const Shop = (props) => {
             setGameNamesOnCategory(categories.find(item => item.name === event.target.value).games);
         }
     }
+
+    const changeSelect = () => {
+        const selectHeader = document.querySelectorAll('.select__header')
+
+        selectHeader.forEach((item) => item.parentElement.classList.toggle('is-active'))
+        selectHeader.forEach((item) => item.parentElement.classList.toggle('rotate-img'))
+    }
+
+    const choiceSelect = () => {
+        console.log('click')
+    }
+
 
   return (
       <Container>
@@ -47,6 +59,10 @@ const Shop = (props) => {
                   placeholder="Начните вводить название для поиска"
                   onChange={handleChange}
               />
+
+
+
+
               <div>
                   <select className="input-select-category" onChange={handleSelect} name="Категории" style={{marginTop: "2px"}}>
                       <option className="select-disabled" style={{paddingLeft: '10px'}} value disabled selected>Категории</option>
@@ -61,6 +77,24 @@ const Shop = (props) => {
                       ))}
                   </select>
               </div>
+
+
+
+
+              <div className="select">
+                  <div className="select__header" onClick={changeSelect}>
+                      <span className="select__current">Категории</span>
+                      <div className="select__icon"><img src={line} /></div>
+                  </div>
+                  <div className="select__body">
+                      {categories && categories.map((type) => (
+                          <div className="select__item" key={type.id} onClick={choiceSelect}>{type.name}</div>
+                      ))}
+                  </div>
+              </div>
+
+
+
           </div>
       <AllGameList
           gameNames={gameNamesOnCategory}
