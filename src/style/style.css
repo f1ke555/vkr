@@ -23,6 +23,10 @@ body {
   background: linear-gradient(90deg, #420D55 -8.01%, #2A0A47 113.26%), #2A0A47;
 }
 
+p {
+  font-family: "Montserrat", sans-serif !important;
+}
+
 .hidden {
   overflow: hidden;
 }
@@ -605,6 +609,7 @@ a:hover {
 }
 
 .form-control {
+  font-family: "Montserrat", sans-serif !important;
   color: #fff;
   margin: 10px 0;
   font-size: 16px;
