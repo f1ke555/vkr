@@ -27,8 +27,6 @@ const CategoryList = (props) => {
 
     const scroll = useRef(null)
     const handleWheel = (e) => {
-        e.nativeEvent.stopImmediatePropagation();
-        e.stopPropagation()
         scroll.current.scrollLeft += e.deltaY;
     }
   return (
