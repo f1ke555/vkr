@@ -141,7 +141,6 @@ function Profile () {
                           fontSize: '14px',
                           lineHeight: '85%',
                           color: '#FFFFFF',
-                            boxSizing: 'content-box',
                         }}
 
                         >{children}</Paper>
@@ -223,20 +222,6 @@ function Profile () {
                 <div>Институт</div>
                 <div>Направление</div>
                 <div>Интересы:</div>
-                  <div>
-                      {competenciesProfile && competenciesProfile.map((item) => {
-                          return <Chip style={{
-                              background: '#735686',
-                              boxShadow: '0px 2px 3px rgba(0, 0, 0, 0.25)',
-                              borderRadius: '3px',
-                              fontWeight: '700',
-                              fontSize: '12px',
-                              lineHeight: '110%',
-                              color: '#FFFFFF',
-                              marginRight: '10px'
-                          }} onDelete={handleDeleteCompetency.bind(null, item.name)} label={item.name}/>
-                      })}
-                  </div>
               </div>
               <div>
                 <div>{profileInfo.phone}</div>
@@ -244,8 +229,23 @@ function Profile () {
                 <div>{profileInfo.univercity}</div>
                 <div>{profileInfo.specialization}</div>
               </div>
-            </div>
 
+            </div>
+              <div>
+                  {competenciesProfile && competenciesProfile.map((item) => {
+                      return <Chip style={{
+                          background: '#735686',
+                          boxShadow: '0px 2px 3px rgba(0, 0, 0, 0.25)',
+                          borderRadius: '3px',
+                          fontWeight: '700',
+                          fontSize: '12px',
+                          lineHeight: '110%',
+                          color: '#FFFFFF',
+                          marginRight: '10px',
+                          marginTop: '10px',
+                      }} onDelete={handleDeleteCompetency.bind(null, item.name)} label={item.name}/>
+                  })}
+              </div>
           </Card>
         </div>
         {/*<div className="col-6">*/}

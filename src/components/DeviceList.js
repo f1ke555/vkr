@@ -67,16 +67,16 @@ const DeviceList = (props) => {
   return (
     <div className="horizontal-scroll mt-3 d-flex justify-content-center">
         <div style={{position: "relative"}}>
-            <div onClick={prevHandler} className="knopka">
+            <button onClick={prevHandler} className="knopka">
                 <img className="arrow-scroll" src={lineleft}/>
-            </div>
-            <div onClick={nextHandler} className="knopkagameright">
+            </button>
+            <button onClick={nextHandler} className="knopkagameright">
                 <img className="arrow-scroll" src={lineright}/>
-            </div>
+            </button>
         </div>
-      <div onWheel={handleWheel} ref={scroll} className="custom-slider" style={{ height: "200px", width: "980px" }}>
+      <div onWheel={handleWheel} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} ref={scroll} className="custom-slider" style={{ height: "200px", width: "980px" }}>
         {filteredGames && filteredGames.map((device) => (
-          <Row className="" onClick={() => void apiTransport.setViewCountIntoGame(device.id, 1)}>
+          <Row  onClick={() => void apiTransport.setViewCountIntoGame(device.id, 1)}>
             <DeviceItem key={device.id} device={device} />
           </Row>
         ))}

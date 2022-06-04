@@ -134,7 +134,8 @@ div.first:hover ~ div.fourth {
   box-shadow: 0px 4px 11px 1px rgba(0, 0, 0, 0.13);
   border-radius: 5px;
   right: 10px;
-  top: 30%;
+  top: 20%;
+  border: 0;
 }
 
 .knopkaright {
@@ -148,6 +149,18 @@ div.first:hover ~ div.fourth {
   background: linear-gradient(97.44deg, rgba(254, 110, 78, 0.9) -31.54%, rgba(254, 78, 78, 0.9) 124.51%);
   box-shadow: 0px 4px 11px 1px rgba(0, 0, 0, 0.13);
   border-radius: 5px;
+  border: 0;
+}
+
+.admin-modal {
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(96.58deg, #FE6E4E -32.76%, #FE4E4E 126.16%);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.17);
+  border-radius: 3px;
+  border: 0;
+  margin-left: 15px;
+  position: relative;
 }
 
 .knopkagame {
@@ -160,6 +173,7 @@ div.first:hover ~ div.fourth {
   border-radius: 5px;
   right: 15px;
   top: 30%;
+  border: 0;
 }
 
 .knopkagameright {
@@ -168,11 +182,70 @@ div.first:hover ~ div.fourth {
   width: 40px;
   height: 70px;
   left: 980px;
-  top: 30%;
+  top: 20%;
   background: linear-gradient(97.44deg, rgba(254, 110, 78, 0.9) -31.54%, rgba(254, 78, 78, 0.9) 124.51%);
   box-shadow: 0px 4px 11px 1px rgba(0, 0, 0, 0.13);
   border-radius: 5px;
+  border: 0;
 }
+table {
+  color: #cf3f3f;
+}
+
+.table-head th {
+  color: #FFFFFF !important;
+  font-family: 'Montserrat' !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  line-height: 85% !important;
+  border-bottom: 1px solid #28073E !important;
+}
+
+.table-head-body th {
+  font-family: 'Montserrat' !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+  line-height: 85% !important;
+  color: #FFFFFF !important;
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+  border-bottom: 1px solid #28073E !important;
+}
+
+.table-deep-body td {
+  font-family: 'Montserrat' !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+  line-height: 85% !important;
+  color: #FFFFFF !important;
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+  border-bottom: 1px solid #28073E !important;
+}
+
+.icon-table-button {
+  color: #fff !important;
+}
+
+.table-deep-body div {
+  font-family: 'Montserrat' !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+  line-height: 85% !important;
+  color: #FFFFFF !important;
+}
+
+tr {
+  border-bottom: 1px solid #28073E !important;
+}
+
+
+
+
 
 .commentary {
   padding-left: 100px;
@@ -180,6 +253,8 @@ div.first:hover ~ div.fourth {
   height: 250px;
   margin-bottom: 30px;
 }
+
+
 
 .commentary::-webkit-scrollbar {
   width: 4px;               /* ширина всей полосы прокрутки */
@@ -543,6 +618,23 @@ a:hover {
   font-weight: 500;
 }
 
+.disable-button {
+  opacity: 0.3
+}
+
+.btn-allcategory {
+  display: inline-block !important;
+  width: 206px;
+  font-size: 14px;
+  height: 26px;
+  background: #330B4F;
+  border: 1px solid #FFFFFF;
+  box-shadow: 0px 4px 11px rgb(0 0 0 / 13%);
+  border-radius: 3px;
+  color: #fff;
+  font-weight: 500;
+}
+
 
 /* Bootstrap classes */
 
@@ -625,7 +717,12 @@ a:hover {
 .arrow-scroll {
   display: block;
   margin: 0 auto;
-  padding-top: 25px;
+}
+
+.open-admin-modal {
+    position: absolute;
+  left: 4px;
+  top: 4px;
 }
 
 .form-control {
@@ -641,6 +738,11 @@ a:hover {
   box-shadow: inset 1px 1px 11px rgba(0, 0, 0, 0.16);
   border-radius: 8px;
   font-weight: 700;
+}
+
+.input-modal {
+  padding-left: 10px !important;
+  box-sizing: border-box;
 }
 
 
@@ -707,6 +809,7 @@ a:hover {
 .form-control::placeholder {
   color: #fff;
   opacity: 0.5;
+  line-height: 28px;
 }
 
 .navbar {

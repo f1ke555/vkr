@@ -5,12 +5,17 @@ import CategoryList from "../components/CategoryList";
 import input_find from "../assets/input_find.png";
 import lineleft from "../assets/lineleft.svg";
 import lineright from "../assets/lineright.png"
+import {ALLGAME_ROUTE, CATEGORY_ROUTE} from "../utils/consts";
+import {useHistory} from "react-router-dom";
+
+
 
 const Shop = () => {
     const [searchText, setSearchText] = useState('');
     const handleChange = (event) => {
         setSearchText(event.target.value);
     }
+    const history = useHistory()
 
   return (
       <Container className="">
@@ -30,12 +35,28 @@ const Shop = () => {
                   onChange={handleChange}
               />
           </div>
-          <div className="">
+          <div style={{position: "relative"}}>
               <h2 className="mt-5 mn-5 d-flex justify-content-center"
               >Категории</h2>
+              <button
+                  style={{position: 'absolute', right: '14%', top: '5px'}}
+                  onClick={() => history.push(CATEGORY_ROUTE)}
+                  className="btn-allcategory">
+                  Показать все категории
+              </button>
           </div>
+
               <CategoryList  searchText={searchText.includes('#') ? searchText.replace('#', '') : ''}/>
-      <h2 className="mt-5 d-flex justify-content-center">Игры</h2>
+          <div style={{position: "relative"}}>
+              <h2 className="mt-5 mn-5 d-flex justify-content-center"
+              >Игры</h2>
+              <button
+                  style={{position: 'absolute', right: '13%', top: '5px'}}
+                  onClick={() => history.push(ALLGAME_ROUTE)}
+                  className="btn-allcategory">
+                  Показать все категории
+              </button>
+          </div>
               <DeviceList searchText={searchText.includes('@') ? searchText.replace('@', '') : ''}/>
     </Container>
       

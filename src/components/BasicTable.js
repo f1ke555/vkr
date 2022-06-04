@@ -13,17 +13,21 @@ import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import GlobalStyles from '@mui/material/GlobalStyles'
 
 
 function Row(props) {
     const { row } = props;
     const [open, setOpen] = React.useState(false);
 
+
+
     return (
         <React.Fragment>
-            <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
+            <TableRow className='table-deep-body' sx={{ '& > *': { borderBottom: 'unset' } }}>
                 <TableCell>
                     <IconButton
+                        className='icon-table-button'
                         aria-label="expand row"
                         size="small"
                         onClick={() => setOpen(!open)}
@@ -31,20 +35,26 @@ function Row(props) {
                         {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
                     </IconButton>
                 </TableCell>
-                <TableCell component="th" scope="row">
+                <TableCell className='table-deep-body' component="th" scope="row">
                     {row.name}
                 </TableCell>
-                <TableCell align="right">{row.description}</TableCell>
                 <TableCell align="right">{row.views}</TableCell>
             </TableRow>
             <TableRow>
-                <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+                <TableCell  style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                     <Collapse in={open} timeout="auto" unmountOnExit>
                         <Box sx={{ margin: 1 }}>
-                            <Typography variant="h6" gutterBottom component="div">
+                            <Typography style={{
+                                color: '#fff',
+                                fontFamily: 'Montserrat',
+                                fontStyle: 'normal',
+                                fontWeight: '700',
+                                fontSize: '16px',
+                                lineHeight: '85%',
+                            }} variant="h6" gutterBottom component="div">
                                 Метрики
                             </Typography>
-                            <Table size="small" aria-label="purchases">
+                            <Table  size="small" aria-label="purchases">
                                 <TableHead>
                                     <TableRow>
                                         <TableCell>Id</TableCell>
@@ -53,7 +63,7 @@ function Row(props) {
                                         <TableCell align="right">Дата</TableCell>
                                     </TableRow>
                                 </TableHead>
-                                <TableBody>
+                                <TableBody  className="table-deep-body">
                                     {row.metrics.map((metricsRow) => (
                                         <TableRow key={metricsRow.date}>
                                             <TableCell component="th" scope="row">
@@ -94,25 +104,29 @@ Row.propTypes = {
     }).isRequired,
 };
 
+const style = {
+    backgroundColor: '#49155E',
+}
 
 export default function CollapsibleTable(props) {
     return (
-        <TableContainer component={Paper}>
-            <Table aria-label="collapsible table">
-                <TableHead>
-                    <TableRow>
-                        <TableCell />
-                        <TableCell>Название игры</TableCell>
-                        <TableCell align="right">Описание</TableCell>
-                        <TableCell align="right">Просмотры</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {props.metrics.map((row) => (
-                        <Row key={row.name} row={row.game} />
-                    ))}
-                </TableBody>
-            </Table>
-        </TableContainer>
+        <>
+            <TableContainer sx={style} component={Paper}>
+                <Table aria-label="collapsible table">
+                    <TableHead className="table-head">
+                        <TableRow>
+                            <TableCell/>
+                            <TableCell>Название игры</TableCell>
+                            <TableCell align="right">Просмотры</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody  className="table-head-body">
+                        {props.metrics.map((row) => (
+                            <Row key={row.name} row={row.game} />
+                        ))}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+        </>
     );
 }

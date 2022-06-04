@@ -4,6 +4,10 @@ import {apiTransport} from "../transport/api.transport";
 import mail_outline from "../assets/mail_outline.png";
 import vpn_key from "../assets/vpn_key.png";
 import BasicTable from "../components/BasicTable"
+import {Modal, Typography} from "@mui/material";
+import Box from "@mui/material/Box";
+import {style} from "@mui/system";
+import adminModal from "../assets/adminModal.svg"
 
 const DEFAULT_STATE = {
     mainData: {
@@ -34,6 +38,23 @@ const Admin = () => {
     const [competency, setCompetency] = useState(COMPETENCY_STATE)
     const [competencyFromGame, setCompetencyFromGame] = useState(COMPETENCY_GAME_STATE)
     const [metrics, setMetrics] = useState([])
+    const [open, setOpen] = useState(false);
+    const [openCategory, setOpenCategory] = useState(false);
+    const [openCompetency, setOpenCompetency] = useState(false);
+    const [openCompetencyFromGame, setOpenCompetencyFromGame] = useState(false);
+
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+    const handleOpenCategory = () => setOpenCategory(true);
+    const handleCloseCategory = () => setOpenCategory(false);
+
+    const handleOpenCompetency = () => setOpenCompetency(true);
+    const handleCloseCompetency = () => setOpenCompetency(false);
+
+    const handleOpenCompetencyFromGame = () => setOpenCompetencyFromGame(true);
+    const handleCloseCompetencyFromGame = () => setOpenCompetencyFromGame(false);
+
     const handleAddGameClick = async () => {
         await apiTransport.addgame(state)
             .then((response) => console.log(response))
@@ -101,81 +122,164 @@ const Admin = () => {
         setCompetency((prevValue) => ({ ...prevValue, name: e.target.value }));
     }
 
+    const style = {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        backgroundColor: '#4B185F',
+        border: '8px',
+        p: 4,
+        boxShadow: '0px 4px 11px 1px rgba(0, 0, 0, 0.13)',
+        borderRadius: '8px',
+    };
+
     return (
         <Container className="d-flex flex-column">
-            <h2 className="pt-3">Добавить игру</h2>
-                <Form className="d-flex flex-column pt-1">
-                    <Form.Control
-                        placeholder="Введите имя игры"
-                        value={state.name}
-                        onChange={handleName}
-                    />
-                    <Form.Control
-                        placeholder="Введите описание игры"
-                        value={state.description}
-                        onChange={handleDescription}
-                    />
-                    <Form.Control
-                        placeholder="Введите категорию игры"
-                        value={state.category}
-                        onChange={handleCategory}
-                    />
-                    <Form.Control
-                        placeholder="Введите просмотры"
-                        value={state.views}
-                        onChange={handleViews}
-                    />
-                    <Button className="mt-4" variant="primary"
-                    onClick={handleAddGameClick}
-                    >
-                        Добавить
-                    </Button>
-            </Form>
-            <h2 className="pt-5">Добавить категорию</h2>
-            <Form>
-                <Form.Control
-                    placeholder="Введите категорию"
-                    value={category.name}
-                    onChange={handleNameCategory}
-                />
-                <Button className="mt-4" variant="primary"
-                        onClick={handleAddCategoryClick}
+            <h1 className="mt-4 d-flex justify-content-center">Панель <span style={{paddingLeft: '10px'}} className="color-text">администратора</span></h1>
+            <div className='d-flex'>
+                <div style={{width: '50%'}}>
+                    <h2 style={{textAlign: 'center'}}>Добавление контента</h2>
+                    <div>
+                        <div className="pt-2 d-flex justify-content-center">
+                            <div>Игра</div>
+                            <button className="admin-modal" onClick={handleOpen}><img className="open-admin-modal" src={adminModal}/></button>
+                        </div>
+                        <div className="pt-4 d-flex justify-content-center">
+                            <div>Категория</div>
+                            <button className="admin-modal" onClick={handleOpenCategory}><img className="open-admin-modal" src={adminModal}/></button>
+                        </div>
+                        <div className="pt-4 d-flex justify-content-center">
+                            <div>Компетенция</div>
+                            <button className="admin-modal" onClick={handleOpenCompetency}><img className="open-admin-modal" src={adminModal}/></button>
+                        </div>
+                        <div className="pt-4 d-flex justify-content-center">
+                            <div>Компетенция к игре</div>
+                            <button className="admin-modal" onClick={handleOpenCompetencyFromGame}><img className="open-admin-modal" src={adminModal}/></button>
+                        </div>
+                    </div>
+                </div>
+                <div style={{width: "50%", textAlign: 'center'}} className="row col-6">
+                    <h2>Добавление контента</h2>
+                    <BasicTable metrics={metrics}/>
+                </div>
+            </div>
+                <Modal
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
                 >
-                    Добавить
-                </Button>
-            </Form>
-            <h2 className="pt-5">Добавить компетенцию</h2>
-            <Form>
-                <Form.Control
-                    placeholder="Введите компетенцию"
-                    value={competency.name}
-                    onChange={handleCompetency}
-                />
-                <Button className="mt-4" variant="primary"
-                        onClick={handleAddCompetencyClick}
+                    <Box sx={style}>
+                        <Typography id="modal-modal-title" variant="h6" component="h2">
+                            <Form className="d-flex flex-column">
+                                <Form.Control
+                                    className="input-modal"
+                                    placeholder="Название игры"
+                                    value={state.name}
+                                    onChange={handleName}
+                                />
+                                <Form.Control
+                                    className="input-modal"
+                                    placeholder="Описание игры"
+                                    value={state.description}
+                                    onChange={handleDescription}
+                                />
+                                <Form.Control
+                                    className="input-modal"
+                                    placeholder="Категория игры"
+                                    value={state.category}
+                                    onChange={handleCategory}
+                                />
+                                <Button className="mt-4" variant="primary"
+                                        onClick={handleAddGameClick}
+                                >
+                                    Добавить
+                                </Button>
+                            </Form>
+                        </Typography>
+                    </Box>
+                </Modal>
+                <Modal
+                    open={openCategory}
+                    onClose={handleCloseCategory}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
                 >
-                    Добавить
-                </Button>
-            </Form>
-            <h2 className="pt-3">Добавить игру</h2>
-            <Form>
-                <Form.Control
-                    placeholder="Введите компетенцию"
-                    value={competencyFromGame.competency}
-                    onChange={handleCompetencyFromGame}
-                />
-                <Form.Control
-                    placeholder="Введите название игры"
-                    value={competencyFromGame.game}
-                    onChange={handlGameCompetency}
-                />
-                <Button className="mt-4" variant="primary"
-                        onClick={handleAddCompetencyFromGame}
+                    <Box sx={style}>
+                        <Typography id="modal-modal-title" variant="h6" component="h2">
+                            <Form>
+                                <Form.Control
+                                    className="input-modal"
+                                    placeholder="Категория"
+                                    value={category.name}
+                                    onChange={handleNameCategory}
+                                />
+                                <Button className="mt-4" variant="primary"
+                                        onClick={handleAddCategoryClick}
+                                >
+                                    Добавить
+                                </Button>
+                            </Form>
+                        </Typography>
+                    </Box>
+                </Modal>
+
+                <Modal
+                    open={openCompetency}
+                    onClose={handleCloseCompetency}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
                 >
-                    Добавить
-                </Button>
-            </Form>
-            <BasicTable metrics={metrics}/>
+                    <Box sx={style}>
+                        <Typography id="modal-modal-title" variant="h6" component="h2">
+                            <Form>
+                                <Form.Control
+                                    className="input-modal"
+                                    placeholder="Компетенция"
+                                    value={competency.name}
+                                    onChange={handleCompetency}
+                                />
+                                <Button className="mt-2" variant="primary"
+                                        onClick={handleAddCompetencyClick}
+                                >
+                                    Добавить
+                                </Button>
+                            </Form>
+                        </Typography>
+                    </Box>
+                </Modal>
+                <Modal
+                    open={openCompetencyFromGame}
+                    onClose={handleCloseCompetencyFromGame}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                >
+                    <Box sx={style}>
+                        <Typography id="modal-modal-title" variant="h6" component="h2">
+                            <Form>
+                                <Form.Control
+                                    className="input-modal"
+                                    placeholder="Компетенция"
+                                    value={competencyFromGame.competency}
+                                    onChange={handleCompetencyFromGame}
+                                />
+                                <Form.Control
+                                    className="input-modal"
+                                    placeholder="Название игры"
+                                    value={competencyFromGame.game}
+                                    onChange={handlGameCompetency}
+                                />
+                                <Button className="mt-4" variant="primary"
+                                        onClick={handleAddCompetencyFromGame}
+                                >
+                                    Добавить
+                                </Button>
+                            </Form>
+                        </Typography>
+                    </Box>
+                </Modal>
+
         </Container>
     );
 };

@@ -9,7 +9,7 @@ import views from "../assets/views.png"
 const DeviceItem = ({ device }) => {
   const history = useHistory();
   return (
-    <Col md={4} onClick={() => history.push(GAME_ROUTE + "/" + device.id, { gameInfo: device })}>
+    <Col onClick={() => history.push(GAME_ROUTE + "/" + device.id, { gameInfo: device })}>
       <Card style={{ width: "228px", height: "147px", cursor: "pointer", marginRight: "19px" }}>
           <div className="first" style={{position: 'relative'}}>
               <img

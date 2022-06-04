@@ -39,6 +39,8 @@ const CategoryList = (props) => {
 
     let position = 0
 
+
+
     const prevHandler = () => {
         if (position === 0) {
             position = 0
@@ -64,7 +66,7 @@ const CategoryList = (props) => {
     }
 
     const onMouseEnter = (e) => {
-      console.log(e);
+      console.log(position);
         $('body').addClass('disable-scroll')
     }
 
@@ -72,12 +74,12 @@ const CategoryList = (props) => {
     <div
         className="mt-3 d-flex justify-content-center" tabIndex="0">
         <div style={{position: "relative"}}>
-            <div onClick={prevHandler} className="knopkagame">
-                <img className="arrow-scroll" src={lineleft}/>
-            </div>
-            <div onClick={nextHandler} className="knopkaright">
+                <button onClick={prevHandler} className="knopkagame">
+                    <img className="arrow-scroll" src={lineleft}/>
+                </button>
+            <button onClick={nextHandler} className="knopkaright">
                 <img className="arrow-scroll" src={lineright}/>
-            </div>
+            </button>
         </div>
         <div onWheel={handleWheel} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} ref={scroll} className="custom-slider">
             {filteredCategories && filteredCategories.map((type) => (
