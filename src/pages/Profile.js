@@ -141,6 +141,7 @@ function Profile () {
                           fontSize: '14px',
                           lineHeight: '85%',
                           color: '#FFFFFF',
+                            boxSizing: 'content-box',
                         }}
 
                         >{children}</Paper>

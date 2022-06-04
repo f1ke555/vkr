@@ -12,11 +12,6 @@ const Shop = () => {
         setSearchText(event.target.value);
     }
 
-    const click = useRef(null)
-    const handleClick = (e) => {
-        click.current.scrollLeft += e.deltaY;
-    }
-
   return (
       <Container className="">
           <h3 style={{paddingTop: "117px"}}
@@ -39,27 +34,9 @@ const Shop = () => {
               <h2 className="mt-5 mn-5 d-flex justify-content-center"
               >Категории</h2>
           </div>
-          <div
-              style={{position: "relative"}}
-          >
-              <div onClick={handleClick} ref={click} className="knopka">
-                  <img className="arrow-scroll" src={lineleft}/>
-              </div>
-              <div className="knopkaright">
-                  <img className="arrow-scroll" src={lineright}/>
-              </div>
               <CategoryList  searchText={searchText.includes('#') ? searchText.replace('#', '') : ''}/>
-          </div>
       <h2 className="mt-5 d-flex justify-content-center">Игры</h2>
-          <div style={{position: "relative"}}>
-              <div className="knopkagame">
-                  <img className="arrow-scroll" src={lineleft}/>
-              </div>
-              <div className="knopkagameright">
-                  <img className="arrow-scroll" src={lineright}/>
-              </div>
               <DeviceList searchText={searchText.includes('@') ? searchText.replace('@', '') : ''}/>
-          </div>
     </Container>
       
   );

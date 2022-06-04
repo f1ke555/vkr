@@ -21,14 +21,6 @@ const Shop = () => {
             .then(response => setCategories(response.data) );
     }, [])
 
-    const handleSelect = (event) => {
-        if (event.target.value === 'Категории') {
-            setGameNamesOnCategory(null)
-        } else {
-            setGameNamesOnCategory(categories.find(item => item.name === event.target.value).games);
-        }
-    }
-
     const changeSelect = () => {
         const selectHeader = document.querySelectorAll('.select__header')
 
@@ -36,8 +28,8 @@ const Shop = () => {
         selectHeader.forEach((item) => item.parentElement.classList.toggle('rotate-img'))
     }
 
-    const choiceSelect = () => {
-        console.log('click')
+    const choiceSelect = (name) => {
+        setGameNamesOnCategory(categories.find(item => item.name === name).games);
     }
 
 
@@ -59,28 +51,6 @@ const Shop = () => {
                   placeholder="Начните вводить название для поиска"
                   onChange={handleChange}
               />
-
-
-
-
-              <div>
-                  <select className="input-select-category" onChange={handleSelect} name="Категории" style={{marginTop: "2px"}}>
-                      <option className="select-disabled" style={{paddingLeft: '10px'}} value disabled selected>Категории</option>
-                      {categories && categories.map((type) => (
-                          <option
-                              className="select-category"
-                              style={{ cursor: "pointer" }}
-                              key={type.id}
-                          >
-                              {type.name}
-                          </option>
-                      ))}
-                  </select>
-              </div>
-
-
-
-
               <div className="select">
                   <div className="select__header" onClick={changeSelect}>
                       <span className="select__current">Категории</span>
@@ -88,7 +58,7 @@ const Shop = () => {
                   </div>
                   <div className="select__body">
                       {categories && categories.map((type) => (
-                          <div className="select__item" key={type.id} onClick={choiceSelect}>{type.name}</div>
+                          <div className="select__item" key={type.id} onClick={choiceSelect.bind(null, type.name)}>{type.name}</div>
                       ))}
                   </div>
               </div>
