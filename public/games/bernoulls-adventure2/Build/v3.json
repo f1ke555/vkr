@@ -1,0 +1,16 @@
+{
+"companyName": "DefaultCompany",
+"productName": "PampLoil",
+"productVersion": "0.1",
+"dataUrl": "PampLoil-0.7.data.unityweb",
+"wasmCodeUrl": "PampLoil-0.7.wasm.code.unityweb",
+"wasmFrameworkUrl": "PampLoil-0.7.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.4.13f1"
+}
