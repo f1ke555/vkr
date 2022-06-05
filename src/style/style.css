@@ -397,7 +397,7 @@ h6 {
 .img-show-password {
   position: absolute;
   left: 457px;
-  top: 267px;
+  top: 210px;
 }
 .description {
   padding-top: 3px;
@@ -428,19 +428,19 @@ a:hover {
   height: 26px;
   width: 26px;
   position: absolute;
-  margin-top: 25px;
+  margin-top: 18px;
   padding-left: 15px;
 }
 
 .img-input-mail {
   position: absolute;
-  margin-top: 186px;
+  margin-top: 146px;
   padding-left: 15px;
 }
 
 .img-input-password {
   position: absolute;
-  margin-top: 265px;
+  margin-top: 210px;
   padding-left: 15px;
 }
 
@@ -455,19 +455,19 @@ a:hover {
 
 .img-input-group {
   position: absolute;
-  margin-top: 105px;
+  margin-top: 82px;
   padding-left: 15px;
 }
 
 .img-input-mail-reg {
   position: absolute;
-  margin-top: 25px;
+  margin-top: 18px;
   padding-left: 15px;
 }
 
 .img-input-password-reg {
   position: absolute;
-  top: 25px;
+  top: 18px;
   left: 16px;
 }
 
@@ -476,7 +476,7 @@ a:hover {
 .error{
   position: absolute;
   right: 318px;
-  bottom: 24px;
+  bottom: 30px;
   z-index: 1;
 }
 
@@ -498,7 +498,7 @@ a:hover {
   box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
   left: 550px;
-  top: 3px;
+  top: 2px;
 }
 .validation-email {
   position: absolute;
@@ -508,7 +508,7 @@ a:hover {
   box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
   left: 550px;
-  top: 173px;
+  top: 118px;
 }
 .validation-group {
   position: absolute;
@@ -518,7 +518,7 @@ a:hover {
   box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
   left: 550px;
-  top: 258px;
+  top: 200px;
 }
 
 .validation-group-auth {

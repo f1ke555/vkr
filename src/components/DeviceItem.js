@@ -13,6 +13,7 @@ const DeviceItem = ({ device }) => {
       <Card style={{ width: "228px", height: "147px", cursor: "pointer", marginRight: "19px" }}>
           <div className="first" style={{position: 'relative'}}>
               <img
+                  style={{borderRadius: '7px'}}
                   src={`/gameCards/${device.name}.png`}
                   height="147px"
                   width="228px"

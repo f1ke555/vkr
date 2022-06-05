@@ -117,14 +117,14 @@ function Profile () {
             <div className="d-flex justify-content-between">
               <div style={{position: "relative"}}>
                 <h4 className="pb-1">Основная информация</h4>
-                <div style={{position: "absolute", left: "12px", top: "33px"}}><img src={account_circle}></img></div>
-                  <div style={{position: "absolute", left: "345px", top: "33px"}}><img src={lock}></img></div>
+                <div style={{position: "absolute", left: "12px", top: "36px"}}><img src={account_circle}></img></div>
+                  <div style={{position: "absolute", left: "345px", top: "36px"}}><img src={lock}></img></div>
                 <input style={{boxShadow: 'none'}} className="input-modal input-modal-category form-control" disabled="true" placeholder={profileInfo.name}/>
-                <div style={{position: "absolute", left: "12px", top: "90px"}}><img src={supervised_user_circle}></img></div>
-                  <div style={{position: "absolute", left: "345px", top: "90px"}}><img src={lock}></img></div>
+                <div style={{position: "absolute", left: "12px", top: "89px"}}><img src={supervised_user_circle}></img></div>
+                  <div style={{position: "absolute", left: "345px", top: "89px"}}><img src={lock}></img></div>
                 <input style={{boxShadow: 'none'}} className="input-modal input-modal-category form-control" disabled="true" placeholder={profileInfo.group}/>
-                <div style={{position: "absolute", left: "12px", top: "145px"}}><img src={university}></img></div>
-                <div style={{position: "absolute", left: "12px", top: "200px"}}><img src={direction}></img></div>
+                <div style={{position: "absolute", left: "12px", top: "143px"}}><img src={university}></img></div>
+                <div style={{position: "absolute", left: "12px", top: "195px"}}><img src={direction}></img></div>
                 <input
                     className="input-modal input-modal-category form-control"
                     placeholder="Название института"
@@ -198,8 +198,8 @@ function Profile () {
 
                 <div style={{paddingTop: "40px", position: 'relative'}}>
                   <h4 className="pb-1">Контактная информация</h4>
-                  <div style={{position: "absolute", left: '10px', top: '75px' }}><img src={mail_outline}></img></div>
-                    <div style={{position: "absolute", left: '340px', top: '75px' }}><img src={lock}></img></div>
+                  <div style={{position: "absolute", left: '10px', top: '77px' }}><img src={mail_outline}></img></div>
+                    <div style={{position: "absolute", left: '340px', top: '77px' }}><img src={lock}></img></div>
                   <input style={{boxShadow: 'none'}} className="input-modal input-modal-category form-control" disabled placeholder={profileInfo.login}/>
                     <div style={{position: "absolute", left: '10px', top: '130px' }}><img src={phone_icon}></img></div>
                     <input

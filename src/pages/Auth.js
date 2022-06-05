@@ -208,7 +208,7 @@ const Auth = () => {
                   />
 
                   <div className="img-input-password-reg"><img src={vpn_key}></img></div>
-                  <div style={{position: "absolute", left: '464px', top: '28px'}}>
+                  <div style={{position: "absolute", left: '464px', top: '18px'}}>
                     <button
                         style={{background: "transparent", border: '0', paddingRight: "10px"}}
                         onClick={toggleBtn}>
@@ -290,7 +290,7 @@ const Auth = () => {
                     <div className="validation-email">
                       <div className="error-text">{emailError}</div>
                       <div className="error-discryption">Возможно, Вы ввели неправильный домен или пропустили букву</div>
-                      <div style={{bottom: '33px'}} className="error"><img src={validation}></img></div>
+                      <div style={{bottom: '17px'}} className="error"><img src={validation}></img></div>
                     </div>
                 }
 
@@ -298,12 +298,12 @@ const Auth = () => {
                     <div className="validation-group">
                       <div className="error-text">{passwordError}</div>
                       <div className="error-discryption">Возможно, Вы ввели неправильный домен или пропустили букву</div>
-                      <div style={{bottom: '37px'}} className="error"><img src={validation}></img></div>
+                      <div style={{bottom: '36px'}} className="error"><img src={validation}></img></div>
                     </div>
                     :
                     <div className="img-show-password">
                       <button
-                          style={{background: "transparent", border: '0', paddingRight: "10px"}}
+                          style={{background: "transparent", border: '0'}}
                           onClick={toggleBtn}>
                         {showPassword ?
                             <img src={no_show}/>
