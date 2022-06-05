@@ -397,7 +397,7 @@ h6 {
 .img-show-password {
   position: absolute;
   left: 457px;
-  top: 283px;
+  top: 267px;
 }
 .description {
   padding-top: 3px;
@@ -428,19 +428,19 @@ a:hover {
   height: 26px;
   width: 26px;
   position: absolute;
-  margin-top: 28px;
+  margin-top: 25px;
   padding-left: 15px;
 }
 
 .img-input-mail {
   position: absolute;
-  margin-top: 198px;
+  margin-top: 186px;
   padding-left: 15px;
 }
 
 .img-input-password {
   position: absolute;
-  margin-top: 283px;
+  margin-top: 265px;
   padding-left: 15px;
 }
 
@@ -455,19 +455,19 @@ a:hover {
 
 .img-input-group {
   position: absolute;
-  margin-top: 113px;
+  margin-top: 105px;
   padding-left: 15px;
 }
 
 .img-input-mail-reg {
   position: absolute;
-  margin-top: 28px;
+  margin-top: 25px;
   padding-left: 15px;
 }
 
 .img-input-password-reg {
   position: absolute;
-  top: 29px;
+  top: 25px;
   left: 16px;
 }
 
@@ -476,7 +476,7 @@ a:hover {
 .error{
   position: absolute;
   right: 318px;
-  bottom: 27px;
+  bottom: 22px;
   z-index: 1;
 }
 
@@ -639,9 +639,9 @@ a:hover {
 /* Bootstrap classes */
 
 .card {
-  background: #4B185F;
-  box-shadow: 0px 4px 11px 1px rgba(0, 0, 0, 0.13);
-  border-radius: 8px;
+  background: #4E0F67;
+  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 7px;
 }
 
 .btn {
@@ -707,11 +707,17 @@ a:hover {
   height: 40px;
 }
 
-.btn-secondary:hover,
-.form-control:focus {
+.btn-secondary:hover {
   background-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
+  color: #FFFFFF;
   border-color: #fe6e4e;
+}
+
+.form-control:focus {
+  color: #fff;
+  background: #1E072D;
+  box-shadow: inset 0px 4px 18px rgba(0, 0, 0, 0.15);
+  border: 0;
 }
 
 .arrow-scroll {
@@ -731,18 +737,21 @@ a:hover {
   margin: 10px 0;
   font-size: 16px;
   line-height: 48px;
-  border-width: 2.5px;
-  border-color: #28073E;
+  border: 0;
   padding-left: 50px;
   background: #28073E;
-  box-shadow: inset 1px 1px 11px rgba(0, 0, 0, 0.16);
-  border-radius: 8px;
+  box-shadow: inset 0px 4px 18px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
   font-weight: 700;
 }
 
 .input-modal {
   padding-left: 10px !important;
   box-sizing: border-box;
+}
+
+.input-modal-category {
+  padding-left: 40px !important;
 }
 
 
@@ -786,8 +795,7 @@ a:hover {
   position: absolute;
   width: 400px;
   height: 85px;
-  left:540px;
-  top: 10px;
+  left:1050px;
   background: #49155E;
   box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
@@ -918,9 +926,67 @@ a:hover {
   transition: opacity 0.3s ease;
 }
 
+
+
+.form-control::-webkit-input-placeholder {
+  transition: opacity 0.3s ease;
+}
+.form-control::-moz-placeholder {
+  transition: opacity 0.3s ease;
+}
+.form-control:-moz-placeholder {
+  transition: opacity 0.3s ease;
+}
+.form-control:-ms-input-placeholder {
+  transition: opacity 0.3s ease;
+}
+.form-control:focus::-webkit-input-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.form-control:focus::-moz-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.form-control:focus:-moz-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.form-control:focus:-ms-input-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+
+
+.input-modal::-webkit-input-placeholder {
+  transition: opacity 0.3s ease;
+}
+.input-modal::-moz-placeholder {
+  transition: opacity 0.3s ease;
+}
+.input-modal:-moz-placeholder {
+  transition: opacity 0.3s ease;
+}
+.input-modal:-ms-input-placeholder {
+  transition: opacity 0.3s ease;
+}
+.input-modal:focus::-webkit-input-placeholder {
+  transition: opacity 0.3s ease;
+}
+.input-modal:focus::-moz-placeholder {
+  transition: opacity 0.3s ease;
+}
+.input-modal:focus:-moz-placeholder {
+  transition: opacity 0.3s ease;
+}
+.input-modal:focus:-ms-input-placeholder {
+  transition: opacity 0.3s ease;
+}
+
 .input-find {
   border-color: #28073E;
-  padding-left: 30px;
+  padding-left: 40px;
   width: 670px;
   height: 45px;
   border-radius: 8px;
@@ -1016,6 +1082,7 @@ a:hover {
 .select__body {
   display: none;
   width: 315px;
+  height: 220px;
   position: absolute;
   right: 0;
   top: 49px;
@@ -1023,6 +1090,21 @@ a:hover {
   background-color: #49155E;
   border-radius: 5px;
   box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.15);
+  overflow-y: scroll;
+}
+
+.select__body::-webkit-scrollbar {
+  width: 3px;
+  background: #28073E;
+  box-shadow: inset 0px 0px 1px rgba(0, 0, 0, 0.15);
+}
+
+.select__body::-webkit-scrollbar-thumb {
+  width: 5px;
+  height: 106px;
+  background: #735686;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.17);
+  border-radius: 2px;
 }
 
 .select__item {

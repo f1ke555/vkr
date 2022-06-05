@@ -4,7 +4,7 @@ import AllGameList from "../components/AllGameList";
 import {useHistory} from "react-router-dom";
 import {ALLGAME_ROUTE} from "../utils/consts";
 import {apiTransport} from "../transport/api.transport";
-import input_find from "../assets/input_find.png";
+import input_find from "../assets/input_find.svg";
 import line from "../assets/filter.svg";
 
 const Shop = () => {

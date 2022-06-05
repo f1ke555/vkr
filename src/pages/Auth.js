@@ -3,17 +3,17 @@ import {NavLink, useHistory, useLocation} from "react-router-dom";
 import { Container, Form, Image } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import { LOGIN_ROUTE, REGISTRATION_ROUTE } from "../utils/consts";
-import account_circle from "../assets/account_circle.png";
-import mail_outline from "../assets/mail_outline.png";
-import vpn_key from "../assets/vpn_key.png";
-import supervised_user_circle from "../assets/supervised_user_circle.png";
+import account_circle from "../assets/account_circle.svg";
+import mail_outline from "../assets/mail_outline.svg";
+import vpn_key from "../assets/vpn_key.svg";
+import supervised_user_circle from "../assets/supervised_user_circle.svg";
 import {apiTransport} from "../transport/api.transport";
 import {Context} from "../index";
 import logo_auth from "../assets/logo_auth.png"
-import show from "../assets/show.png"
-import help from "../assets/help.png"
-import validation from "../assets/validation.png"
-import no_show from "../assets/no_show.png"
+import show from "../assets/show.svg"
+import help from "../assets/help.svg"
+import validation from "../assets/validation.svg"
+import no_show from "../assets/no_show.svg"
 
 
 const DEFAULT_FORM_VALUES = {
@@ -249,7 +249,6 @@ const Auth = () => {
                     value={formValues.name}
                 />
                 <div className="img-input"><img src={account_circle}></img></div>
-
                 <Form.Control
                     autocomplete="disabled"
                     placeholder="Академическая группа"

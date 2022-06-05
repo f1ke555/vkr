@@ -59,6 +59,7 @@ const Admin = () => {
         await apiTransport.addgame(state)
             .then((response) => console.log(response))
             .catch((e) => console.log(e));
+        setOpen(false)
     };
 
     useEffect(() => {
@@ -76,6 +77,7 @@ const Admin = () => {
         await apiTransport.addcategory(category)
             .then((response) => console.log(response))
             .catch((e) => console.log(e));
+        setOpen(false)
     };
 
     const handleAddCompetencyClick = async () => {
@@ -88,6 +90,7 @@ const Admin = () => {
         await apiTransport.addCompetencyFromGame(competencyFromGame)
             .then((response) => console.log(response))
             .catch((e) => console.log(e));
+        setOpen(false)
     };
 
     const handleCompetencyFromGame = (e) => {
@@ -173,25 +176,32 @@ const Admin = () => {
                     <Box sx={style}>
                         <Typography id="modal-modal-title" variant="h6" component="h2">
                             <Form className="d-flex flex-column">
+                                <div className="d-flex">
+                                    <Form.Control
+                                        style={{width: '380px', height: '45px'}}
+                                        className="input-modal"
+                                        placeholder="Название игры"
+                                        value={state.name}
+                                        onChange={handleName}
+                                    />
+                                    <Form.Control
+                                        style={{marginLeft: '11px', width: '265px', height: '45px'}}
+                                        className="input-modal"
+                                        placeholder="Категория игры"
+                                        value={state.category}
+                                        onChange={handleCategory}
+                                    />
+                                </div>
                                 <Form.Control
-                                    className="input-modal"
-                                    placeholder="Название игры"
-                                    value={state.name}
-                                    onChange={handleName}
-                                />
-                                <Form.Control
+                                    style={{width: '655px', height: '96px', padding: '0'}}
                                     className="input-modal"
                                     placeholder="Описание игры"
                                     value={state.description}
                                     onChange={handleDescription}
                                 />
-                                <Form.Control
-                                    className="input-modal"
-                                    placeholder="Категория игры"
-                                    value={state.category}
-                                    onChange={handleCategory}
-                                />
+
                                 <Button className="mt-4" variant="primary"
+                                        style={{width: '235px', height: '41px'}}
                                         onClick={handleAddGameClick}
                                 >
                                     Добавить

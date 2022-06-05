@@ -4,7 +4,7 @@ import AllCategoryList from "../components/AllCategoryList";
 import {apiTransport} from "../transport/api.transport";
 import {useHistory} from "react-router-dom";
 import {ALLGAME_ROUTE} from "../utils/consts";
-import input_find from "../assets/input_find.png";
+import input_find from "../assets/input_find.svg";
 
 const Category = () => {
     const [searchText, setSearchText] = useState('');

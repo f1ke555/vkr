@@ -5,9 +5,14 @@ import {Autocomplete, Chip, TextField, Modal, Typography, Paper} from "@mui/mate
 import {Box} from "@mui/system";
 import {Context} from "../index";
 import {useHistory} from "react-router-dom";
-import vpn_key from "../assets/vpn_key.png";
-import mail_outline from "../assets/mail_outline.png";
+import mail_outline from "../assets/mail_outline.svg"
+import university from "../assets/university.svg";
+import direction from "../assets/direction.svg";
 import photo from "../assets/photo.png";
+import account_circle from "../assets/account_circle.svg";
+import supervised_user_circle from "../assets/supervised_user_circle.svg";
+import phone_icon from "../assets/phone_icon.svg"
+import lock from "../assets/lock.svg"
 
 const DEFAULT_PROFILE_INFO = {
   "id":0,
@@ -33,6 +38,7 @@ const style = {
   border: '8px',
   p: 4,
   boxShadow: '0px 4px 11px 1px rgba(0, 0, 0, 0.13)',
+    borderRadius: '8px'
 };
 
 function Profile () {
@@ -109,20 +115,22 @@ function Profile () {
             <div className="d-flex justify-content-between">
               <div style={{position: "relative"}}>
                 <h4>Основная информация</h4>
-                <div style={{position: "absolute", left: "12px", top: "33px"}}><img src={vpn_key}></img></div>
-                <input className="input-modal form-control" disabled="true" placeholder={profileInfo.name}/>
-                <div style={{position: "absolute", left: "12px", top: "90px"}}><img src={vpn_key}></img></div>
-                <input className="input-modal form-control" disabled="true" placeholder={profileInfo.group}/>
-                <div style={{position: "absolute", left: "12px", top: "145px"}}><img src={mail_outline}></img></div>
-                <div style={{position: "absolute", left: "12px", top: "200px"}}><img src={mail_outline}></img></div>
+                <div style={{position: "absolute", left: "12px", top: "33px"}}><img src={account_circle}></img></div>
+                  <div style={{position: "absolute", left: "345px", top: "33px"}}><img src={lock}></img></div>
+                <input className="input-modal input-modal-category form-control" disabled="true" placeholder={profileInfo.name}/>
+                <div style={{position: "absolute", left: "12px", top: "90px"}}><img src={supervised_user_circle}></img></div>
+                  <div style={{position: "absolute", left: "345px", top: "90px"}}><img src={lock}></img></div>
+                <input className="input-modal input-modal-category form-control" disabled="true" placeholder={profileInfo.group}/>
+                <div style={{position: "absolute", left: "12px", top: "145px"}}><img src={university}></img></div>
+                <div style={{position: "absolute", left: "12px", top: "200px"}}><img src={direction}></img></div>
                 <input
-                    className="input-modal form-control"
+                    className="input-modal input-modal-category form-control"
                     placeholder="Название института"
                     onChange={handleChangeFromValues.bind(null, 'univercity')}
                 />
 
                 <input
-                    className="input-modal form-control"
+                    className="input-modal input-modal-category form-control"
                     placeholder="Название направления"
                     onChange={handleChangeFromValues.bind(null, 'specialization')}
                 />
@@ -186,13 +194,14 @@ function Profile () {
                 />
                 <div style={{paddingTop: "30px"}}>
                   <h4>Контактная информация</h4>
-                  <div style={{position: "absolute", left: "572px", top: "239px"}}><img src={vpn_key}></img></div>
-                  <input className="input-modal form-control" disabled placeholder={profileInfo.login}/>
+                  <div style={{position: "absolute", left: "572px", top: "239px"}}><img src={mail_outline}></img></div>
+                    <div style={{position: "absolute", right: '45px', top: "239px"}}><img src={lock}></img></div>
+                  <input className="input-modal input-modal-category form-control" disabled placeholder={profileInfo.login}/>
                 </div>
 
-                <div style={{position: "absolute", left: "572px", top: "295px"}}><img src={mail_outline}></img></div>
+                <div style={{position: "absolute", left: "572px", top: "295px"}}><img src={phone_icon}></img></div>
                 <input
-                    className="input-modal form-control"
+                    className="input-modal input-modal-category form-control"
                     placeholder="Номер телефона"
                     onChange={handleChangeFromValues.bind(null, 'phone')}
                 />
