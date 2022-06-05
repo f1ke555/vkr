@@ -78,7 +78,7 @@ function DevicePage() {
 
   return (
     <div className="container">
-      <h1 className="mt-4 color-text">{state.mainData.name}</h1>
+      <h1 className="mt-4">{state.mainData.name}</h1>
       { state.mainData.name &&
         <Unity
             tabIndex={9999}
