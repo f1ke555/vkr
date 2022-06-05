@@ -140,7 +140,7 @@ const Admin = () => {
     return (
         <Container className="d-flex flex-column">
             <h1 className="mt-4 d-flex justify-content-center">Панель <span style={{paddingLeft: '10px'}} className="color-text">администратора</span></h1>
-            <div className='d-flex'>
+            <div className='d-flex mt-4'>
                 <div style={{width: '50%'}}>
                     <h2 style={{textAlign: 'center'}}>Добавление контента</h2>
                     <div>
