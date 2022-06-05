@@ -1061,3 +1061,51 @@ a:hover {
 .select.rotate-img .select__icon {
   transform: rotate(180deg);
 }
+
+.css-1ex1afd-MuiTableCell-root {
+  border-bottom: 1px solid #28073E !important;
+
+}
+
+.css-rqglhn-MuiTable-root {
+  border-collapse: unset !important;
+}
+
+.MuiFilledInput-root {
+  padding: 12.5px 44px !important;
+  background-color: #28073E !important;
+  border-radius: 5px !important;
+  box-shadow: inset 0px 0px 18px rgba(0, 0, 0, 0.15) !important;
+
+  font-family: "Montserrat", sans-serif !important;
+  font-style: normal !important;
+  letter-spacing: 0 !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  color: #ffffff !important;
+}
+
+.MuiFilledInput-root:focus-within {
+  background-color: #1E072D !important;
+}
+
+.css-1gctnaj-MuiInputBase-input-MuiFilledInput-input::-webkit-input-placeholder {
+  opacity: 1 !important;
+  color: #735686 !important;
+}
+
+.MuiFilledInput-input {
+  padding: 0 !important;
+}
+
+.MuiAutocomplete-endAdornment {
+  display: none !important;
+}
+
+.css-sl80c4-MuiInputBase-root-MuiFilledInput-root:before {
+  border-bottom: none !important;
+}
+
+.css-sl80c4-MuiInputBase-root-MuiFilledInput-root:after {
+  display: none !important;
+}

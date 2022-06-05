@@ -134,13 +134,19 @@ function Profile () {
                     onChange={(e, value) => handleAddCompetency(e, value)}
                     id="tags-filled"
                     PaperComponent={({ children }) => (
-                        <Paper style={{ background: '#330B4F',
-                          boxShadow: '0px 1px 12px rgba(0, 0, 0, 0.3)',
-                          borderRadius: '6px',
-                          fontWeight: '500',
-                          fontSize: '14px',
-                          lineHeight: '85%',
-                          color: '#FFFFFF',
+                        <Paper style={{
+                            background: "linear-gradient(89.92deg, #360771 -149.34%, #3D0F4E 197.42%)",
+                            marginTop: '5px',
+                            boxShadow: '0px 1px 12px rgba(0, 0, 0, 0.3)',
+                            borderRadius: '6px',
+                            fontWeight: '500',
+                            fontSize: '14px',
+                            lineHeight: '165%',
+                            color: '#FFFFFF',
+                            height: '150px',
+                            overflowY: 'scroll',
+                            fontFamily: 'Montserrat',
+                            paddingLeft: '30px'
                         }}
 
                         >{children}</Paper>
