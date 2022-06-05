@@ -2,9 +2,7 @@ import React, {useRef, useState} from "react";
 import { Container } from "react-bootstrap";
 import DeviceList from "../components/DeviceList";
 import CategoryList from "../components/CategoryList";
-import input_find from "../assets/input_find.png";
-import lineleft from "../assets/lineleft.svg";
-import lineright from "../assets/lineright.png"
+import input_find from "../assets/input_find.svg";
 import {ALLGAME_ROUTE, CATEGORY_ROUTE} from "../utils/consts";
 import {useHistory} from "react-router-dom";
 
@@ -54,7 +52,7 @@ const Shop = () => {
                   style={{position: 'absolute', right: '13%', top: '5px'}}
                   onClick={() => history.push(ALLGAME_ROUTE)}
                   className="btn-allcategory">
-                  Показать все категории
+                  Показать все игры
               </button>
           </div>
               <DeviceList searchText={searchText.includes('@') ? searchText.replace('@', '') : ''}/>

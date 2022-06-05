@@ -19,7 +19,6 @@ import { useHistory } from "react-router-dom";
 import home from "../assets/home.png";
 import game from "../assets/game.png";
 import category from "../assets/category.png";
-import {apiTransport} from "../transport/api.transport";
 import logo from "../assets/logo.png"
 import photo_navbar from "../assets/photo_navbar.png";
 import logout from "../assets/logout.png";
@@ -39,6 +38,16 @@ const NavBar = observer(() => {
     <Navbar className="navbar navbar-expand-lg">
       <Container>
           <NavLink to={MANE_ROUTE}><img src={logo}/></NavLink>
+          {(sessionStorage.getItem('role') === 'admin') ?
+              <button
+                  style={{width: '307px', height: '41px'}}
+                  className="btn btn-primary"
+                  onClick={() => history.push(ADMIN_ROUTE)}>
+                  Панель администратора
+              </button>
+              :
+              <div></div>
+          }
 <div className="d-flex navbar-icon">
     <div onClick={() => history.push(MANE_ROUTE)}>
         <div className="navbar-icon-abs"><img src={home}></img></div>
@@ -82,15 +91,6 @@ const NavBar = observer(() => {
                       <img style={{paddingLeft: '10px', paddingTop: "6px", cursor: "pointer"}} src={logout}/>
                   </div>
               </div>
-              {(sessionStorage.getItem('role') === 'admin') ?
-                  <button
-                      className="btn btn-primary"
-                      onClick={() => history.push(ADMIN_ROUTE)}>
-                      Админ панель
-                  </button>
-                  :
-                  <div></div>
-              }
           </Nav>
         ) : (
           <Nav className="ml-auto">
