@@ -48,28 +48,28 @@ const NavBar = observer(() => {
               :
               <div></div>
           }
-<div className="d-flex navbar-icon">
-    <div onClick={() => history.push(MANE_ROUTE)}>
-        <div className="navbar-icon-abs"><img src={home}></img></div>
+<div className="navbar-icons">
+    <div onClick={() => history.push(MANE_ROUTE)} className="navbar-item">
+        <div className="navbar-icon"><img src={home}></img></div>
         <button className="btn-nav"
                 onClick={() => history.push(MANE_ROUTE)}>
             Главная
         </button>
     </div>
-    <div>
+    <div className="navbar-item">
         <div
             onClick={() => history.push(CATEGORY_ROUTE)}
-            className="navbar-icon-category"><img src={category}></img></div>
+            className="navbar-icon"><img src={category}></img></div>
         <button className="btn-nav"
                 onClick={() => history.push(CATEGORY_ROUTE)}
         >
             Категории
         </button>
     </div>
-    <div>
+    <div className="navbar-item">
         <div
             onClick={() => history.push(ALLGAME_ROUTE)}
-            className="navbar-icon-game"><img src={game}></img></div>
+            className="navbar-icon"><img src={game}></img></div>
         <button className="btn-nav"
                 onClick={() => history.push(ALLGAME_ROUTE)}
         >

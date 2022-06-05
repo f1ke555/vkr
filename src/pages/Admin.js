@@ -175,7 +175,7 @@ const Admin = () => {
                 >
                     <Box sx={style}>
                         <Typography id="modal-modal-title" variant="h6" component="h2">
-                            <Form className="d-flex flex-column">
+                            <Form className="mui-form">
                                 <div className="d-flex">
                                     <Form.Control
                                         style={{width: '380px', height: '45px'}}
@@ -200,7 +200,7 @@ const Admin = () => {
                                     onChange={handleDescription}
                                 />
 
-                                <Button className="mt-4" variant="primary"
+                                <Button variant="primary"
                                         style={{width: '235px', height: '41px'}}
                                         onClick={handleAddGameClick}
                                 >
@@ -218,14 +218,14 @@ const Admin = () => {
                 >
                     <Box sx={style}>
                         <Typography id="modal-modal-title" variant="h6" component="h2">
-                            <Form>
+                            <Form className="mui-form">
                                 <Form.Control
                                     className="input-modal"
                                     placeholder="Категория"
                                     value={category.name}
                                     onChange={handleNameCategory}
                                 />
-                                <Button className="mt-4" variant="primary"
+                                <Button variant="primary"
                                         onClick={handleAddCategoryClick}
                                 >
                                     Добавить
@@ -243,14 +243,14 @@ const Admin = () => {
                 >
                     <Box sx={style}>
                         <Typography id="modal-modal-title" variant="h6" component="h2">
-                            <Form>
+                            <Form className="mui-form">
                                 <Form.Control
                                     className="input-modal"
                                     placeholder="Компетенция"
                                     value={competency.name}
                                     onChange={handleCompetency}
                                 />
-                                <Button className="mt-2" variant="primary"
+                                <Button variant="primary"
                                         onClick={handleAddCompetencyClick}
                                 >
                                     Добавить
@@ -267,7 +267,7 @@ const Admin = () => {
                 >
                     <Box sx={style}>
                         <Typography id="modal-modal-title" variant="h6" component="h2">
-                            <Form>
+                            <Form className="mui-form">
                                 <Form.Control
                                     className="input-modal"
                                     placeholder="Компетенция"
@@ -280,7 +280,7 @@ const Admin = () => {
                                     value={competencyFromGame.game}
                                     onChange={handlGameCompetency}
                                 />
-                                <Button className="mt-4" variant="primary"
+                                <Button variant="primary"
                                         onClick={handleAddCompetencyFromGame}
                                 >
                                     Добавить

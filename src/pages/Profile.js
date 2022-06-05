@@ -115,7 +115,7 @@ function Profile () {
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             <div className="d-flex justify-content-between">
               <div style={{position: "relative"}}>
-                <h4>Основная информация</h4>
+                <h4 className="pb-1">Основная информация</h4>
                 <div style={{position: "absolute", left: "12px", top: "33px"}}><img src={account_circle}></img></div>
                   <div style={{position: "absolute", left: "345px", top: "33px"}}><img src={lock}></img></div>
                 <input className="input-modal input-modal-category form-control" disabled="true" placeholder={profileInfo.name}/>
@@ -137,7 +137,7 @@ function Profile () {
                 />
               </div>
               <div>
-                <h4>Выбор интересов</h4>
+                <h4 className="pb-1">Выбор интересов</h4>
                   <div style={{position: 'relative'}}>
                       <div style={{position: "absolute", top: '10px', zIndex: '1', left: '10px'}}><img src={input_find}></img></div>
                       <Autocomplete
@@ -196,7 +196,7 @@ function Profile () {
                   </div>
 
                 <div style={{paddingTop: "40px", position: 'relative'}}>
-                  <h4>Контактная информация</h4>
+                  <h4 className="pb-1">Контактная информация</h4>
                   <div style={{position: "absolute", left: '10px', top: '75px' }}><img src={mail_outline}></img></div>
                     <div style={{position: "absolute", left: '340px', top: '75px' }}><img src={lock}></img></div>
                   <input className="input-modal input-modal-category form-control" disabled placeholder={profileInfo.login}/>

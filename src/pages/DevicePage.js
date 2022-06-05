@@ -89,9 +89,9 @@ function DevicePage() {
             loader={`/games/${state.mainData.name}/Build/UnityLoader.js`}
         />
       }
-      <div className="d-flex justify-content-between">
+      <div className="d-flex justify-content-between mt-1">
         <div><span className="color-text">Разработчик/</span>{`${state.mainData.name}`}</div>
-        <div className><span className="color-text">Просмотров:</span>{`${state.mainData.views + 2}`}</div>
+        <div><span className="color-text">Просмотров:</span>{`${state.mainData.views + 2}`}</div>
       </div>
       <h2 className="color-text pt-4">Описание</h2>
       <h4
@@ -112,13 +112,13 @@ function DevicePage() {
             {sessionStorage.getItem('token') ?
                 <div>
                   <h2 className="color-text">Комментарий:</h2>
-                  <input
+                  <textarea
                       id="test"
                       className="form-control input-find mt-3 input-com"
                       name="comment"
                       value={state.commentText}
                       onChange={handleChange}
-                  />
+                  ></textarea>
                   <button className="btn btn-primary mt-4" onClick={addComment}>Отправить</button>
                 </div>
                 :

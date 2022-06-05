@@ -174,8 +174,8 @@ const Auth = () => {
                 </div>
             )}
           </div>
-          <h1 className="m-0 mt-5">{isLogin ? <div>C <span className="color-text">возвращением</span>!</div> : <div><span className="color-text">Создание</span> аккаунта</div>}</h1>
-          <div className="m-0">
+          <h1 className="auth-header">{isLogin ? <div>C <span className="color-text">возвращением</span>!</div> : <div><span className="color-text">Создание</span> аккаунта</div>}</h1>
+          <div className="auth-subheader">
             {isLogin ?
                 <div>Мы рады, что Вы снова используете нашу платформу</div>
               :
@@ -231,8 +231,8 @@ const Auth = () => {
                   }
                 </div>
                 <div></div>
-                <Button className="mt-4" variant="primary" onClick={handleLogin}>
-                  Войти
+                <Button className="mt-4 w-275" variant="primary" onClick={handleLogin}>
+                  Войти на сайт
                 </Button>
               </Form>
           ) : (
@@ -324,7 +324,7 @@ const Auth = () => {
                   }
                 </div>
                 <Button disabled = {!formValid} className="mt-4" variant={"primary"} onClick={handleRegistrationClick}>
-                  Регистрация
+                  Зарегистрироваться
                 </Button>
               </Form>
           )}

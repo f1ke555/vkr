@@ -17,7 +17,7 @@ const Shop = () => {
 
   return (
       <Container className="">
-          <h3 style={{paddingTop: "117px"}}
+          <h3 style={{paddingTop: "100px"}}
               className="d-flex justify-content-center">
               Добро пожаловать на онлайн платформу образовательных игр
           </h3>
