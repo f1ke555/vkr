@@ -13,6 +13,7 @@ import account_circle from "../assets/account_circle.svg";
 import supervised_user_circle from "../assets/supervised_user_circle.svg";
 import phone_icon from "../assets/phone_icon.svg"
 import lock from "../assets/lock.svg"
+import input_find from "../assets/input_find.svg";
 
 const DEFAULT_PROFILE_INFO = {
   "id":0,
@@ -137,74 +138,75 @@ function Profile () {
               </div>
               <div>
                 <h4>Выбор интересов</h4>
-                <Autocomplete
-                    multiple
-                    onChange={(e, value) => handleAddCompetency(e, value)}
-                    id="tags-filled"
-                    PaperComponent={({ children }) => (
-                        <Paper style={{
-                            background: "linear-gradient(89.92deg, #360771 -149.34%, #3D0F4E 197.42%)",
-                            marginTop: '5px',
-                            boxShadow: '0px 1px 12px rgba(0, 0, 0, 0.3)',
-                            borderRadius: '6px',
-                            fontWeight: '500',
-                            fontSize: '14px',
-                            lineHeight: '165%',
-                            color: '#FFFFFF',
-                            height: '150px',
-                            overflowY: 'scroll',
-                            fontFamily: 'Montserrat',
-                            paddingLeft: '30px'
-                        }}
-
-                        >{children}</Paper>
-                    )}
-                    options={competency.map((option) => option.name)}
-                    renderTags={(value, getTagProps) =>
-                        value.map((option, index) => (
-                            <Chip
-                                style={{
-                                  background: '#735686',
-                                  boxShadow: '0px 2px 3px rgba(0, 0, 0, 0.25)',
-                                  borderRadius: '3px',
-                                  fontWeight: '700',
-                                  fontSize: '12px',
-                                  lineHeight: '110%',
+                  <div style={{position: 'relative'}}>
+                      <div style={{position: "absolute", top: '10px', zIndex: '1', left: '10px'}}><img src={input_find}></img></div>
+                      <Autocomplete
+                          multiple
+                          onChange={(e, value) => handleAddCompetency(e, value)}
+                          id="tags-filled"
+                          PaperComponent={({ children }) => (
+                              <Paper style={{
+                                  background: "linear-gradient(89.92deg, #360771 -149.34%, #3D0F4E 197.42%)",
+                                  marginTop: '5px',
+                                  boxShadow: '0px 1px 12px rgba(0, 0, 0, 0.3)',
+                                  borderRadius: '6px',
+                                  fontWeight: '500',
+                                  fontSize: '14px',
+                                  lineHeight: '165%',
                                   color: '#FFFFFF',
-                                }}
-                                label={option}
-                                {...getTagProps({ index })}
-                                onDelete={handleDeleteCompetency}
-                            />
-                        ))
-                    }
-                    renderInput={(params) => (
-                        <TextField
-                            style={{
-                              fontWeight: '700',
-                              fontSize: '14px',
-                              lineHeight: '85%',
-                              color: '#735686',
-                            }}
-                            {...params}
-                            variant="filled"
-                            placeholder="Поиск интересов"
-                        />
-                    )}
-                />
-                <div style={{paddingTop: "30px"}}>
-                  <h4>Контактная информация</h4>
-                  <div style={{position: "absolute", left: "572px", top: "239px"}}><img src={mail_outline}></img></div>
-                    <div style={{position: "absolute", right: '45px', top: "239px"}}><img src={lock}></img></div>
-                  <input className="input-modal input-modal-category form-control" disabled placeholder={profileInfo.login}/>
-                </div>
+                                  fontFamily: 'Montserrat',
+                                  paddingLeft: '30px'
+                              }}
 
-                <div style={{position: "absolute", left: "572px", top: "295px"}}><img src={phone_icon}></img></div>
-                <input
-                    className="input-modal input-modal-category form-control"
-                    placeholder="Номер телефона"
-                    onChange={handleChangeFromValues.bind(null, 'phone')}
-                />
+                              >{children}</Paper>
+                          )}
+                          options={competency.map((option) => option.name)}
+                          renderTags={(value, getTagProps) =>
+                              value.map((option, index) => (
+                                  <Chip
+                                      style={{
+                                          background: '#735686',
+                                          boxShadow: '0px 2px 3px rgba(0, 0, 0, 0.25)',
+                                          borderRadius: '3px',
+                                          fontWeight: '700',
+                                          fontSize: '12px',
+                                          lineHeight: '110%',
+                                          color: '#FFFFFF',
+                                      }}
+                                      label={option}
+                                      {...getTagProps({ index })}
+                                      onDelete={handleDeleteCompetency}
+                                  />
+                              ))
+                          }
+                          renderInput={(params) => (
+                              <TextField
+                                  style={{
+                                      fontWeight: '700',
+                                      fontSize: '14px',
+                                      lineHeight: '85%',
+                                      color: '#735686',
+                                  }}
+                                  {...params}
+                                  variant="filled"
+                                  placeholder="Поиск интересов"
+                              />
+                          )}
+                      />
+                  </div>
+
+                <div style={{paddingTop: "40px", position: 'relative'}}>
+                  <h4>Контактная информация</h4>
+                  <div style={{position: "absolute", left: '10px', top: '75px' }}><img src={mail_outline}></img></div>
+                    <div style={{position: "absolute", left: '340px', top: '75px' }}><img src={lock}></img></div>
+                  <input className="input-modal input-modal-category form-control" disabled placeholder={profileInfo.login}/>
+                    <div style={{position: "absolute", left: '10px', top: '130px' }}><img src={phone_icon}></img></div>
+                    <input
+                        className="input-modal input-modal-category form-control"
+                        placeholder="Номер телефона"
+                        onChange={handleChangeFromValues.bind(null, 'phone')}
+                    />
+                </div>
               </div>
               </div>
 
