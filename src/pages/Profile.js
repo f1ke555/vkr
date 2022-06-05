@@ -14,6 +14,7 @@ import supervised_user_circle from "../assets/supervised_user_circle.svg";
 import phone_icon from "../assets/phone_icon.svg"
 import lock from "../assets/lock.svg"
 import input_find from "../assets/input_find.svg";
+import {ALLGAME_ROUTE, PROFILE_ROUTE} from "../utils/consts";
 
 const DEFAULT_PROFILE_INFO = {
   "id":0,
@@ -35,7 +36,7 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 970,
   height: 470,
-  backgroundColor: '#4B185F',
+    background: 'linear-gradient(84.79deg, #420D55 -16.43%, #2A0A47 118.26%)',
   border: '8px',
   p: 4,
   boxShadow: '0px 4px 11px 1px rgba(0, 0, 0, 0.13)',
@@ -109,19 +110,19 @@ function Profile () {
           aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h3" style={{color: '#fff', fontWeight: '700', fontSize: '30px'}}>
-            Редактирование формы профиля
-          </Typography>
+                <Typography id="modal-modal-title" variant="h6" component="h3" style={{color: '#fff', fontWeight: '700', fontSize: '30px'}}>
+                    Редактирование профиля
+                </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             <div className="d-flex justify-content-between">
               <div style={{position: "relative"}}>
                 <h4>Основная информация</h4>
                 <div style={{position: "absolute", left: "12px", top: "33px"}}><img src={account_circle}></img></div>
                   <div style={{position: "absolute", left: "345px", top: "33px"}}><img src={lock}></img></div>
-                <input className="input-modal input-modal-category form-control" disabled="true" placeholder={profileInfo.name}/>
+                <input style={{boxShadow: 'none'}} className="input-modal input-modal-category form-control" disabled="true" placeholder={profileInfo.name}/>
                 <div style={{position: "absolute", left: "12px", top: "90px"}}><img src={supervised_user_circle}></img></div>
                   <div style={{position: "absolute", left: "345px", top: "90px"}}><img src={lock}></img></div>
-                <input className="input-modal input-modal-category form-control" disabled="true" placeholder={profileInfo.group}/>
+                <input style={{boxShadow: 'none'}} className="input-modal input-modal-category form-control" disabled="true" placeholder={profileInfo.group}/>
                 <div style={{position: "absolute", left: "12px", top: "145px"}}><img src={university}></img></div>
                 <div style={{position: "absolute", left: "12px", top: "200px"}}><img src={direction}></img></div>
                 <input
@@ -199,7 +200,7 @@ function Profile () {
                   <h4>Контактная информация</h4>
                   <div style={{position: "absolute", left: '10px', top: '75px' }}><img src={mail_outline}></img></div>
                     <div style={{position: "absolute", left: '340px', top: '75px' }}><img src={lock}></img></div>
-                  <input className="input-modal input-modal-category form-control" disabled placeholder={profileInfo.login}/>
+                  <input style={{boxShadow: 'none'}} className="input-modal input-modal-category form-control" disabled placeholder={profileInfo.login}/>
                     <div style={{position: "absolute", left: '10px', top: '130px' }}><img src={phone_icon}></img></div>
                     <input
                         className="input-modal input-modal-category form-control"
@@ -240,7 +241,7 @@ function Profile () {
                 <div>Направление</div>
                 <div>Интересы:</div>
               </div>
-              <div>
+              <div style={{fontWeight: '500', textAlign: 'end'}}>
                 <div>{profileInfo.phone}</div>
                 <div>{profileInfo.login}</div>
                 <div>{profileInfo.univercity}</div>

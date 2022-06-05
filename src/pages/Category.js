@@ -29,7 +29,7 @@ const Category = () => {
               />
           </div>
           <div className="d-flex justify-content-between">
-              <h2 className="mt-5">Категории</h2>
+              <h1 className="mt-5">Категории</h1>
               <button
                   onClick={() => history.push(ALLGAME_ROUTE)}
                   className="btn-category">

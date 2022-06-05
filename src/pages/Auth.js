@@ -290,7 +290,7 @@ const Auth = () => {
                     <div className="validation-email">
                       <div className="error-text">{emailError}</div>
                       <div className="error-discryption">Возможно, Вы ввели неправильный домен или пропустили букву</div>
-                      <div className="error"><img src={validation}></img></div>
+                      <div style={{bottom: '33px'}} className="error"><img src={validation}></img></div>
                     </div>
                 }
 
@@ -298,7 +298,7 @@ const Auth = () => {
                     <div className="validation-group">
                       <div className="error-text">{passwordError}</div>
                       <div className="error-discryption">Возможно, Вы ввели неправильный домен или пропустили букву</div>
-                      <div className="error"><img src={validation}></img></div>
+                      <div style={{bottom: '37px'}} className="error"><img src={validation}></img></div>
                     </div>
                     :
                     <div className="img-show-password">
